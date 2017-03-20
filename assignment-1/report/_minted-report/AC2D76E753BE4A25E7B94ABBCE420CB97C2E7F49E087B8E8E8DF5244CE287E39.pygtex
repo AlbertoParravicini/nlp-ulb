@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{string}
+
+\PYG{k}{def} \PYG{n+nf}{generate\PYGZus{}text}\PYG{p}{(}\PYG{n}{language\PYGZus{}model}\PYG{p}{,} \PYG{n}{min\PYGZus{}length}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,}
+        \PYG{n}{vocabulary}\PYG{o}{=}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{string}\PYG{o}{.}\PYG{n}{ascii\PYGZus{}lowercase}\PYG{p}{[:}\PYG{l+m+mi}{26}\PYG{p}{]} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZdq{}}\PYG{p}{)):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Generate text from the given 3\PYGZhy{}Grams language model.}
+\PYG{l+s+sd}{    :param language\PYGZus{}model: a 3\PYGZhy{}D tensor in which [i, j, k] is the probability}
+\PYG{l+s+sd}{        of encountering \PYGZdq{}k\PYGZdq{} after \PYGZdq{}ij\PYGZdq{}.}
+\PYG{l+s+sd}{    :param min\PYGZus{}length: minimum length of the generated text. After that,}
+\PYG{l+s+sd}{        the generation will stop after encountering \PYGZdq{}\PYGZus{}\PYGZus{}\PYGZdq{}}
+\PYG{l+s+sd}{    :param vocabulary: the set of characters to be used on the generation.}
+\PYG{l+s+sd}{    :return: a string of generated text.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{length} \PYG{o}{=} \PYG{l+m+mi}{0}
+
+    \PYG{n}{generated\PYGZus{}text} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}\PYGZdq{}}
+    \PYG{n}{mem\PYGZus{}vec} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{26}\PYG{p}{,} \PYG{l+m+mi}{26}\PYG{p}{]}
+
+    \PYG{k}{while} \PYG{n+nb+bp}{True}\PYG{p}{:}
+        \PYG{n}{prob\PYGZus{}vec} \PYG{o}{=} \PYG{n}{language\PYGZus{}model}\PYG{p}{[}\PYG{n}{mem\PYGZus{}vec}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{mem\PYGZus{}vec}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{p}{:]}
+        \PYG{c+c1}{\PYGZsh{}print(\PYGZdq{}MEMORY:\PYGZdq{}, [vocabulary[c] for c in mem\PYGZus{}vec], list(zip(vocabulary, prob\PYGZus{}vec)))}
+        \PYG{n}{new\PYGZus{}char\PYGZus{}index} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)),} \PYG{n}{p}\PYG{o}{=}\PYG{n}{prob\PYGZus{}vec}\PYG{p}{)}
+        \PYG{n}{generated\PYGZus{}text} \PYG{o}{+=} \PYG{n}{vocabulary}\PYG{p}{[}\PYG{n}{new\PYGZus{}char\PYGZus{}index}\PYG{p}{]}
+        \PYG{n}{mem\PYGZus{}vec} \PYG{o}{=} \PYG{n}{mem\PYGZus{}vec}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:]} \PYG{o}{+} \PYG{p}{[}\PYG{n}{new\PYGZus{}char\PYGZus{}index}\PYG{p}{]}
+        \PYG{n}{length} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{k}{if} \PYG{n}{length} \PYG{o}{\PYGZgt{}=} \PYG{n}{min\PYGZus{}length} \PYG{o+ow}{and} \PYG{n}{generated\PYGZus{}text}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{:]} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{:}
+            \PYG{k}{break}
+    \PYG{k}{return} \PYG{n}{generated\PYGZus{}text}
+
+\PYG{n}{language\PYGZus{}model} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{load}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}language\PYGZus{}model\PYGZus{}freq\PYGZus{}GB.npy\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{generated\PYGZus{}text} \PYG{o}{=} \PYG{n}{generate\PYGZus{}text}\PYG{p}{(}\PYG{n}{language\PYGZus{}model}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{generated\PYGZus{}text}\PYG{p}{)}
+\end{Verbatim}

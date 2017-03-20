@@ -1,0 +1,144 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{re}
+\PYG{k+kn}{import} \PYG{n+nn}{timeit}
+\PYG{k+kn}{import} \PYG{n+nn}{string}
+
+\PYG{c+c1}{\PYGZsh{} Used to check which packages are installed.}
+\PYG{c+c1}{\PYGZsh{} Check http://stackoverflow.com/questions/1051254/check\PYGZhy{}if\PYGZhy{}python\PYGZhy{}package\PYGZhy{}is\PYGZhy{}installed}
+\PYG{k+kn}{import} \PYG{n+nn}{pip}
+\PYG{n}{installed\PYGZus{}packages} \PYG{o}{=} \PYG{n}{pip}\PYG{o}{.}\PYG{n}{get\PYGZus{}installed\PYGZus{}distributions}\PYG{p}{()}
+\PYG{n}{flat\PYGZus{}installed\PYGZus{}packages} \PYG{o}{=} \PYG{p}{[}\PYG{n}{package}\PYG{o}{.}\PYG{n}{project\PYGZus{}name} \PYG{k}{for} \PYG{n}{package} \PYG{o+ow}{in} \PYG{n}{installed\PYGZus{}packages}\PYG{p}{]}
+\PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}Unidecode\PYGZsq{}} \PYG{o+ow}{in} \PYG{n}{flat\PYGZus{}installed\PYGZus{}packages}\PYG{p}{:}
+    \PYG{k+kn}{import} \PYG{n+nn}{unicodedata}
+
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} TEXT PREPROCESSING \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{k}{def} \PYG{n+nf}{preprocess\PYGZus{}string}\PYG{p}{(}\PYG{n}{input\PYGZus{}lines}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} Put all sentences to lowercase.}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{p}{[}\PYG{n}{x}\PYG{o}{.}\PYG{n}{lower}\PYG{p}{()} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{input\PYGZus{}lines}\PYG{p}{]}
+    \PYG{c+c1}{\PYGZsh{} If the package \PYGZdq{}unidecode\PYGZdq{} is installed,}
+    \PYG{c+c1}{\PYGZsh{} replace unicode non\PYGZhy{}ascii characters (e.g. accented characters)}
+    \PYG{c+c1}{\PYGZsh{} with their closest ascii alternative.}
+    \PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}Unidecode\PYGZsq{}} \PYG{o+ow}{in} \PYG{n}{flat\PYGZus{}installed\PYGZus{}packages}\PYG{p}{:}
+        \PYG{n}{lines} \PYG{o}{=} \PYG{p}{[}\PYG{n}{unicodedata}\PYG{o}{.}\PYG{n}{normalize}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}NFKD\PYGZdq{}}\PYG{p}{,} \PYG{n}{x}\PYG{p}{)} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{lines}\PYG{p}{]}
+    \PYG{c+c1}{\PYGZsh{} Remove any character except a\PYGZhy{}z and whitespaces.}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{p}{[}\PYG{n}{re}\PYG{o}{.}\PYG{n}{sub}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}([\PYGZca{}\PYGZbs{}sa\PYGZhy{}z])+\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{,} \PYG{n}{x}\PYG{p}{)} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{lines}\PYG{p}{]}
+    \PYG{c+c1}{\PYGZsh{} Join all the strings into one}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{lines}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Remove whitespaces at the start and end of each sentence.}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{n}{lines}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
+    \PYG{c+c1}{\PYGZsh{} Substitute single and multiple whitespaces with a double underscore.}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{n}{re}\PYG{o}{.}\PYG{n}{sub}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}[\PYGZbs{}s]+\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{,} \PYG{n}{lines}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Also add a double underscore at the start and at the end of each sentence.}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{lines} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}\PYGZdq{}}
+
+    \PYG{k}{return} \PYG{n}{lines}
+
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} COUNT TRIGRAMS  \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{c+c1}{\PYGZsh{} Build the vocabulary, in our case a list of alphabetical character plus \PYGZus{}}
+\PYG{c+c1}{\PYGZsh{} Treating \PYGZus{} as character will allow to model the ending of words too!}
+\PYG{n}{vocabulary} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{string}\PYG{o}{.}\PYG{n}{ascii\PYGZus{}lowercase}\PYG{p}{[:}\PYG{l+m+mi}{26}\PYG{p}{]} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZdq{}}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{count\PYGZus{}occ}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{,} \PYG{n}{trigram}\PYG{p}{):}
+    \PYG{n}{occurrences} \PYG{o}{=} \PYG{l+m+mi}{0}
+
+    \PYG{k}{for} \PYG{n}{n} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{2}\PYG{p}{):}
+        \PYG{k}{if} \PYG{n}{sentence}\PYG{p}{[}\PYG{n}{n}\PYG{p}{:}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{]} \PYG{o}{==} \PYG{n}{trigram}\PYG{p}{:}
+            \PYG{n}{occurrences} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n}{occurrences}
+
+\PYG{k}{def} \PYG{n+nf}{generate\PYGZus{}n\PYGZus{}grams}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{,} \PYG{n}{n}\PYG{p}{):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Generate the set of n\PYGZhy{}grams for the given sentence.}
+\PYG{l+s+sd}{    :param sentence: input text string}
+\PYG{l+s+sd}{    :param n: size of the n\PYGZhy{}grams}
+\PYG{l+s+sd}{    :return: the set of n\PYGZhy{}grams that appear in the sequence.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{[}\PYG{n}{i}\PYG{p}{:}\PYG{n}{i}\PYG{o}{+}\PYG{n}{n}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
+
+
+\PYG{k}{def} \PYG{n+nf}{build\PYGZus{}occurrencies\PYGZus{}matrix}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{,} \PYG{n}{lines}\PYG{p}{,} \PYG{n}{smoothing}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}laplace\PYGZdq{}}\PYG{p}{):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Build a matrix in which position [i, j, k] corresponds}
+\PYG{l+s+sd}{    to the number of occurrences of trigram \PYGZdq{}ijk\PYGZdq{} in the given corpus}
+\PYG{l+s+sd}{    :param vocabulary: the characters for which the occurrences are counted}
+\PYG{l+s+sd}{    :param lines: a text string}
+\PYG{l+s+sd}{    :param smoothing: the type of smoothing to be applied}
+\PYG{l+s+sd}{    :return: a 3\PYGZhy{}D numpy tensor}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{start\PYGZus{}time} \PYG{o}{=} \PYG{n}{timeit}\PYG{o}{.}\PYG{n}{default\PYGZus{}timer}\PYG{p}{()}
+    \PYG{n}{occurrencies\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{shape}\PYG{o}{=}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{),} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{),} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)))}
+    \PYG{n}{v\PYGZus{}dict} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{char}\PYG{p}{:} \PYG{n}{num} \PYG{k}{for} \PYG{n}{num}\PYG{p}{,} \PYG{n}{char} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)\PYGZcb{}}
+
+    \PYG{c+c1}{\PYGZsh{} Generate all the trigrams that appear in the corpus}
+    \PYG{n}{trigrams} \PYG{o}{=} \PYG{n}{generate\PYGZus{}n\PYGZus{}grams}\PYG{p}{(}\PYG{n}{lines}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} For each trigram, count its occurrences}
+    \PYG{k}{for} \PYG{n}{i\PYGZus{}t}\PYG{p}{,} \PYG{n}{t} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{trigrams}\PYG{p}{):}
+        \PYG{k}{print}\PYG{p}{(}\PYG{n}{i\PYGZus{}t} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{trigrams}\PYG{p}{))}
+        \PYG{n}{occurrencies\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{v\PYGZus{}dict}\PYG{p}{[}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]],} \PYG{n}{v\PYGZus{}dict}\PYG{p}{[}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]],} \PYG{n}{v\PYGZus{}dict}\PYG{p}{[}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]]]} \PYG{o}{=} \PYG{n}{count\PYGZus{}occ}\PYG{p}{(}\PYG{n}{lines}\PYG{p}{,} \PYG{n}{t}\PYG{p}{)}
+    \PYG{n}{end\PYGZus{}time} \PYG{o}{=} \PYG{n}{timeit}\PYG{o}{.}\PYG{n}{default\PYGZus{}timer}\PYG{p}{()}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}! \PYGZhy{}\PYGZgt{} EXECUTION TIME OF OCCURRENCIES COUNTING:\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{end\PYGZus{}time} \PYG{o}{\PYGZhy{}} \PYG{n}{start\PYGZus{}time}\PYG{p}{),} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{k}{if} \PYG{n}{smoothing}\PYG{o}{==}\PYG{l+s+s2}{\PYGZdq{}laplace\PYGZdq{}}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} Apply laplacian smoothing}
+        \PYG{n}{occurrencies\PYGZus{}matrix} \PYG{o}{+=} \PYG{l+m+mi}{1}
+
+\PYG{k}{return} \PYG{n}{occurrencies\PYGZus{}matrix}
+
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} ESTIMATE PROBABILITIES \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{k}{def} \PYG{n+nf}{build\PYGZus{}freq\PYGZus{}matrix}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{,} \PYG{n}{occurrencies\PYGZus{}matrix}\PYG{p}{):}
+    \PYG{n}{start\PYGZus{}time} \PYG{o}{=} \PYG{n}{timeit}\PYG{o}{.}\PYG{n}{default\PYGZus{}timer}\PYG{p}{()}
+
+    \PYG{c+c1}{\PYGZsh{} Estimate probabilities of encountering \PYGZdq{}k\PYGZdq{} after \PYGZdq{}ij\PYGZdq{}:}
+    \PYG{c+c1}{\PYGZsh{} prob(k | i, j) = count(\PYGZdq{}ijk\PYGZdq{}) / count(\PYGZdq{}ij\PYGZdq{})}
+    \PYG{n}{frequency\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{shape}\PYG{o}{=}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{),} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{),} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)))}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)):}
+            \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)):}
+                \PYG{n}{frequency\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n}{occurrencies\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{]}\PYGZbs{}
+                 \PYG{o}{/} \PYG{p}{(}\PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{occurrencies\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{,} \PYG{p}{:]))}
+    \PYG{n}{end\PYGZus{}time} \PYG{o}{=} \PYG{n}{timeit}\PYG{o}{.}\PYG{n}{default\PYGZus{}timer}\PYG{p}{()}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}! \PYGZhy{}\PYGZgt{} EXECUTION TIME OF PROBABILITIES:\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{end\PYGZus{}time} \PYG{o}{\PYGZhy{}} \PYG{n}{start\PYGZus{}time}\PYG{p}{),} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{k}{return} \PYG{n}{frequency\PYGZus{}matrix}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} MAIN  TRAINING \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{k}{def} \PYG{n+nf}{train}\PYG{p}{(}\PYG{n}{version}\PYG{p}{):}
+    \PYG{n}{filename} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}./data/training.\PYGZdq{}} \PYG{o}{+} \PYG{n}{version} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}.txt\PYGZdq{}}
+
+    \PYG{n}{start\PYGZus{}time} \PYG{o}{=} \PYG{n}{timeit}\PYG{o}{.}\PYG{n}{default\PYGZus{}timer}\PYG{p}{()}
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{encoding}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}utf8\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{n}{f}\PYG{o}{.}\PYG{n}{readlines}\PYG{p}{()}
+
+    \PYG{c+c1}{\PYGZsh{}lines = lines[:int(len(lines)/200)]}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{n}{preprocess\PYGZus{}string}\PYG{p}{(}\PYG{n}{lines}\PYG{p}{)}
+
+    \PYG{n}{end\PYGZus{}time} \PYG{o}{=} \PYG{n}{timeit}\PYG{o}{.}\PYG{n}{default\PYGZus{}timer}\PYG{p}{()}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}! \PYGZhy{}\PYGZgt{} EXECUTION TIME OF TEXT PREPROCESSING:\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{end\PYGZus{}time} \PYG{o}{\PYGZhy{}} \PYG{n}{start\PYGZus{}time}\PYG{p}{),} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{k}{print}\PYG{p}{(}\PYG{n}{lines}\PYG{p}{[:}\PYG{l+m+mi}{20}\PYG{p}{])}
+
+    \PYG{n}{occurrencies\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{build\PYGZus{}occurrencies\PYGZus{}matrix}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{,} \PYG{n}{lines}\PYG{p}{)}
+    \PYG{n}{np}\PYG{o}{.}\PYG{n}{save}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}./language\PYGZus{}model\PYGZus{}occ\PYGZus{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{version}\PYG{p}{,} \PYG{n}{occurrencies\PYGZus{}matrix}\PYG{p}{)}
+    \PYG{n}{frequency\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{build\PYGZus{}freq\PYGZus{}matrix}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{,} \PYG{n}{occurrencies\PYGZus{}matrix}\PYG{p}{)}
+    \PYG{n}{np}\PYG{o}{.}\PYG{n}{save}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}./language\PYGZus{}model\PYGZus{}freq\PYGZus{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{version}\PYG{p}{,} \PYG{n}{frequency\PYGZus{}matrix}\PYG{p}{)}
+
+\PYG{n}{versions} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}GB\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}US\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}AU\PYGZdq{}}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{v} \PYG{o+ow}{in} \PYG{n}{versions}\PYG{p}{:}
+    \PYG{n}{train}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction to character-level N-grams models}{}% 2
+\BOOKMARK [1][-]{section.3}{Text Preprocessing}{}% 3
+\BOOKMARK [1][-]{section.4}{3-Grams Model Building}{}% 4
+\BOOKMARK [1][-]{section.5}{Text Generation}{}% 5
+\BOOKMARK [1][-]{section.6}{Text Classification}{}% 6
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 7
+\BOOKMARK [1][-]{section.8}{Annex: Python Code}{}% 8
+\BOOKMARK [2][-]{subsection.8.1}{Model Building}{section.8}% 9
+\BOOKMARK [2][-]{subsection.8.2}{Text Generation}{section.8}% 10
+\BOOKMARK [2][-]{subsection.8.3}{Text Classification}{section.8}% 11
+\BOOKMARK [1][-]{section.9}{Annex: Language Model Extract}{}% 12
+\BOOKMARK [1][-]{section.10}{Addendum: Kneser-Ney Smoothing}{}% 13
+\BOOKMARK [2][-]{subsection.10.1}{Snippets of the implementation}{section.10}% 14

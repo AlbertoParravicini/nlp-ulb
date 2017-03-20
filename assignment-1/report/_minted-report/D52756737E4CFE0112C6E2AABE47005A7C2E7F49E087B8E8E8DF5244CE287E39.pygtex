@@ -1,0 +1,83 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k+kn}{as} \PYG{n+nn}{pd}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{re}
+\PYG{k+kn}{import} \PYG{n+nn}{timeit}
+\PYG{k+kn}{import} \PYG{n+nn}{string}
+
+\PYG{k+kn}{from} \PYG{n+nn}{language\PYGZus{}model} \PYG{k+kn}{import} \PYG{n}{preprocess\PYGZus{}string}
+
+\PYG{k}{def} \PYG{n+nf}{perplexity}\PYG{p}{(}\PYG{n}{string}\PYG{p}{,} \PYG{n}{language\PYGZus{}model}\PYG{p}{,} \PYG{n}{log}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{,}
+        \PYG{n}{vocabulary}\PYG{o}{=}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{string}\PYG{o}{.}\PYG{n}{ascii\PYGZus{}lowercase}\PYG{p}{[:}\PYG{l+m+mi}{26}\PYG{p}{]} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZdq{}}\PYG{p}{)):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Computes the perplexity of a given string, for the specified language model.}
+
+\PYG{l+s+sd}{    Given a sentence composed by character [c\PYGZus{}1, c\PYGZus{}2, ..., c\PYGZus{}n],}
+\PYG{l+s+sd}{    perplexity is defined as P(c\PYGZus{}1, c\PYGZus{}2, ..., c\PYGZus{}n)\PYGZca{}(\PYGZhy{}1/n).}
+
+\PYG{l+s+sd}{    :param string: the input string on which perplexity is computed}
+\PYG{l+s+sd}{    :param language\PYGZus{}model: language model used to compute perplexity.}
+\PYG{l+s+sd}{    It is a matrix in which entry [i, j, k] is P(k | j, i).}
+\PYG{l+s+sd}{    :param log: returns perplexity in log\PYGZhy{}space.}
+\PYG{l+s+sd}{    :param vocabulary: the vocabulary that is used to evaluate the perplexity.}
+\PYG{l+s+sd}{    :return: the perplexity of the sentence.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{v\PYGZus{}dict} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{char}\PYG{p}{:} \PYG{n}{num} \PYG{k}{for} \PYG{n}{num}\PYG{p}{,} \PYG{n}{char} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{vocabulary}\PYG{p}{)\PYGZcb{}}
+
+    \PYG{n}{perp} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{string}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{2}\PYG{p}{):}
+        \PYG{n}{perp} \PYG{o}{+=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{language\PYGZus{}model}\PYG{p}{[}\PYG{n}{v\PYGZus{}dict}\PYG{p}{[}\PYG{n}{string}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]],} \PYG{n}{v\PYGZus{}dict}\PYG{p}{[}\PYG{n}{string} \PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]],}\PYGZbs{}
+            \PYG{n}{v\PYGZus{}dict}\PYG{p}{[}\PYG{n}{string}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]])}
+        \PYG{n}{perp} \PYG{o}{*=} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{string}\PYG{p}{))}
+
+    \PYG{k}{return} \PYG{n}{perp} \PYG{k}{if} \PYG{n}{log}\PYG{o}{==}\PYG{n+nb+bp}{True} \PYG{k}{else} \PYG{l+m+mi}{2}\PYG{o}{**}\PYG{n}{perp}
+
+\PYG{k}{def} \PYG{n+nf}{analyze\PYGZus{}results}\PYG{p}{(}\PYG{n}{results}\PYG{p}{,} \PYG{n}{true\PYGZus{}cond}\PYG{p}{,} \PYG{n}{perc}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    :param results: a list of tuples of the form (real\PYGZus{}label, predicted\PYGZus{}label)}
+\PYG{l+s+sd}{    :param true\PYGZus{}cond: label that should be considered as true condition}
+\PYG{l+s+sd}{    :param perc: if true, give the results as \PYGZpc{} instead than absolute values}
+\PYG{l+s+sd}{    :return: a dictionary with keys [TP, FN, FP, TN]}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{tp} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{==} \PYG{n}{true\PYGZus{}cond} \PYG{o+ow}{and} \PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{==} \PYG{n}{true\PYGZus{}cond} \PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n}{results}\PYG{p}{])}
+    \PYG{n}{fn} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{==} \PYG{n}{true\PYGZus{}cond} \PYG{o+ow}{and} \PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{true\PYGZus{}cond} \PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n}{results}\PYG{p}{])}
+    \PYG{n}{fp} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{true\PYGZus{}cond} \PYG{o+ow}{and} \PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{==} \PYG{n}{true\PYGZus{}cond} \PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n}{results}\PYG{p}{])}
+    \PYG{n}{tn} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{true\PYGZus{}cond} \PYG{o+ow}{and} \PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{true\PYGZus{}cond} \PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n}{results}\PYG{p}{])}
+
+    \PYG{n}{confusion\PYGZus{}matrix} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}TP\PYGZdq{}}\PYG{p}{:} \PYG{n}{tp}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}FN\PYGZdq{}}\PYG{p}{:} \PYG{n}{fn}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}FP\PYGZdq{}}\PYG{p}{:} \PYG{n}{fp}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}TN\PYGZdq{}}\PYG{p}{:} \PYG{n}{tn}\PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{confusion\PYGZus{}matrix} \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{perc} \PYG{k}{else}\PYGZbs{}
+        \PYG{p}{\PYGZob{}}\PYG{n}{k}\PYG{p}{:} \PYG{n}{v} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{results}\PYG{p}{)} \PYG{k}{for} \PYG{n}{k}\PYG{p}{,} \PYG{n}{v} \PYG{o+ow}{in} \PYG{n}{confusion\PYGZus{}matrix}\PYG{o}{.}\PYG{n}{items}\PYG{p}{()\PYGZcb{}}
+
+\PYG{k}{def} \PYG{n+nf}{accuracy}\PYG{p}{(}\PYG{n}{results}\PYG{p}{):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    :param results: a list of tuples of the form (real\PYGZus{}label, predicted\PYGZus{}label)}
+\PYG{l+s+sd}{    :return: accuracy of the results, expressed as the percentage of labels correctly predicted.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{==} \PYG{n}{item}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n}{results}\PYG{p}{])} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{results}\PYG{p}{)}
+
+\PYG{n}{model\PYGZus{}names} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}GB\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}US\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}AU\PYGZdq{}}\PYG{p}{]}
+\PYG{n}{language\PYGZus{}models} \PYG{o}{=} \PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{k}{for} \PYG{n}{model\PYGZus{}name} \PYG{o+ow}{in} \PYG{n}{model\PYGZus{}names}\PYG{p}{:}
+    \PYG{n}{language\PYGZus{}models}\PYG{p}{[}\PYG{n}{model\PYGZus{}name}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{load}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}language\PYGZus{}model\PYGZus{}freq\PYGZus{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{model\PYGZus{}name} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}.npy\PYGZdq{}}\PYG{p}{)}
+
+
+\PYG{n}{test\PYGZus{}filename} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}data/test.txt\PYGZdq{}}
+
+\PYG{n}{results} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{test\PYGZus{}filename}\PYG{p}{,} \PYG{n}{encoding}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}utf8\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+    \PYG{n}{lines} \PYG{o}{=} \PYG{n}{f}\PYG{o}{.}\PYG{n}{readlines}\PYG{p}{()}
+\PYG{k}{for} \PYG{n}{l} \PYG{o+ow}{in} \PYG{n}{lines}\PYG{p}{:}
+    \PYG{p}{[}\PYG{n}{label}\PYG{p}{,} \PYG{n}{sentence}\PYG{p}{]} \PYG{o}{=} \PYG{n}{l}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{n}{sentence} \PYG{o}{=} \PYG{n}{preprocess\PYGZus{}string}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{)}
+    \PYG{n}{perp\PYGZus{}res} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{k}\PYG{p}{:} \PYG{n}{perplexity}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{,} \PYG{n}{language\PYGZus{}model}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{k}\PYG{p}{,} \PYG{n}{language\PYGZus{}model} \PYG{o+ow}{in} \PYG{n}{language\PYGZus{}models}\PYG{o}{.}\PYG{n}{items}\PYG{p}{()\PYGZcb{}}
+    \PYG{n}{results}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{label}\PYG{p}{,} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{perp\PYGZus{}res}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{(),} \PYG{n}{key}\PYG{o}{=}\PYG{p}{(}\PYG{k}{lambda} \PYG{n}{key}\PYG{p}{:} \PYG{n}{perp\PYGZus{}res}\PYG{p}{[}\PYG{n}{key}\PYG{p}{]))))}
+    \PYG{k}{print}\PYG{p}{(}\PYG{n}{sentence}\PYG{p}{[:}\PYG{l+m+mi}{6}\PYG{p}{],} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{} REAL LABEL:\PYGZdq{}}\PYG{p}{,} \PYG{n}{label}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{} PERP:\PYGZdq{}}\PYG{p}{,} \PYG{n}{perp\PYGZus{}res}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{results}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{======== GB =========}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{analyze\PYGZus{}results}\PYG{p}{(}\PYG{n}{results}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}GB\PYGZdq{}}\PYG{p}{,} \PYG{n+nb+bp}{False}\PYG{p}{))}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{======== US =========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{analyze\PYGZus{}results}\PYG{p}{(}\PYG{n}{results}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}US\PYGZdq{}}\PYG{p}{,} \PYG{n+nb+bp}{False}\PYG{p}{))}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{======== AU =========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{analyze\PYGZus{}results}\PYG{p}{(}\PYG{n}{results}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}AU\PYGZdq{}}\PYG{p}{,} \PYG{n+nb+bp}{False}\PYG{p}{))}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{===== ACCURACY ======}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{accuracy}\PYG{p}{(}\PYG{n}{results}\PYG{p}{))}
+\end{Verbatim}
