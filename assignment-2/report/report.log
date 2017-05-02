@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.19)  30 APR 2017 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.19)  1 MAY 2017 23:40
 entering extended mode
 **report.tex input
 (report.tex
@@ -1089,23 +1089,428 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \c@algocf=\count157
 \algocf@algoframe=\box43
 \algocf@algobox=\box44
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
-Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks42
-\thm@bodyfont=\toks43
-\thm@headfont=\toks44
-\thm@notefont=\toks45
-\thm@headpunct=\toks46
-\thm@preskip=\skip128
-\thm@postskip=\skip129
-\thm@headsep=\skip130
-\dth@everypar=\toks47
-)
-\c@definition=\count158
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count159
+\c@lips@count=\count158
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\frontendlayer\tikz.sty
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-co
+mmon.tex
+\pgfutil@everybye=\toks42
+\pgfutil@tempdima=\dimen188
+\pgfutil@tempdimb=\dimen189
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-co
+mmon-lists.tex))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-la
+tex.def
+\pgfutil@abb=\box45
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfrcs.cod
+e.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys.c
+ode.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.co
+de.tex
+\pgfkeys@pathtoks=\toks43
+\pgfkeys@temptoks=\toks44
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeysfil
+tered.code.tex
+\pgfkeys@tmptoks=\toks45
+))
+\pgf@x=\dimen190
+\pgf@y=\dimen191
+\pgf@xa=\dimen192
+\pgf@ya=\dimen193
+\pgf@xb=\dimen194
+\pgf@yb=\dimen195
+\pgf@xc=\dimen196
+\pgf@yc=\dimen197
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count159
+\c@pgf@countb=\count160
+\c@pgf@countc=\count161
+\c@pgf@countd=\count162
+\t@pgf@toka=\toks46
+\t@pgf@tokb=\toks47
+\t@pgf@tokc=\toks48
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-p
+dftex.def
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-c
+ommon-pdf.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysso
+ftpath.code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count163
+\pgfsyssoftpath@bigbuffer@items=\count164
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyspr
+otocol.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcore.c
+ode.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.te
+x
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathcalc.cod
+e.tex
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathutil.cod
+e.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathparser.c
+ode.tex
+\pgfmath@dimen=\dimen198
+\pgfmath@count=\count165
+\pgfmath@box=\box46
+\pgfmath@toks=\toks49
+\pgfmath@stack@operand=\toks50
+\pgfmath@stack@operation=\toks51
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.code.tex
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.basic.code.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.trigonometric.code.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.random.code.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.comparison.code.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.base.code.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.round.code.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.misc.code.tex)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.integerarithmetics.code.tex)))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfloat.co
+de.tex
+\c@pgfmathroundto@lastzeros=\count166
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepo
+ints.code.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen256
+\pgf@picmaxx=\dimen257
+\pgf@picminy=\dimen258
+\pgf@picmaxy=\dimen259
+\pgf@pathminx=\dimen260
+\pgf@pathmaxx=\dimen261
+\pgf@pathminy=\dimen262
+\pgf@pathmaxy=\dimen263
+\pgf@xx=\dimen264
+\pgf@xy=\dimen265
+\pgf@yx=\dimen266
+\pgf@yy=\dimen267
+\pgf@zx=\dimen268
+\pgf@zy=\dimen269
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+thconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen270
+\pgf@path@lasty=\dimen271
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+thusage.code.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen272
+\pgf@shorten@start@additional=\dimen273
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoresc
+opes.code.tex
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box47
+\pgf@hbox=\box48
+\pgf@layerbox@main=\box49
+\pgf@picture@serial@count=\count167
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoregr
+aphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen274
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretr
+ansformations.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen275
+\pgf@pt@y=\dimen276
+\pgf@pt@temp=\dimen277
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorequ
+ick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreob
+jects.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+thprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorear
+rows.code.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen278
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoresh
+ade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen279
+\pgf@sys@shading@range@num=\count168
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreim
+age.code.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreex
+ternal.code.tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box50
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorela
+yers.code.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretr
+ansparency.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+tterns.code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulesha
+pes.code.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box51
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleplo
+t.code.tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-
+version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen280
+\pgf@nodesepend=\dimen281
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-
+version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgffor.sty
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfkeys.sty
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.co
+de.tex))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\math\pgfmath.sty
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.te
+x))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgffor.cod
+e.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.te
+x)
+\pgffor@iter=\dimen282
+\pgffor@skip=\dimen283
+\pgffor@stack=\toks52
+\pgffor@toks=\toks53
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\t
+ikz.code.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
+plothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count169
+\pgfplotmarksize=\dimen284
+)
+\tikz@lastx=\dimen285
+\tikz@lasty=\dimen286
+\tikz@lastxsaved=\dimen287
+\tikz@lastysaved=\dimen288
+\tikzleveldistance=\dimen289
+\tikzsiblingdistance=\dimen290
+\tikz@figbox=\box52
+\tikz@figbox@bg=\box53
+\tikz@tempbox=\box54
+\tikz@tempbox@bg=\box55
+\tikztreelevel=\count170
+\tikznumberofchildren=\count171
+\tikznumberofcurrentchild=\count172
+\tikz@fig@count=\count173
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulemat
+rix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count174
+\pgfmatrixcurrentcolumn=\count175
+\pgf@matrix@numberofcolumns=\count176
+)
+\tikz@expandcount=\count177
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tikz-dependency\tikz-dependency.sty"
+Package: tikz-dependency 2011/01/08 v1.1 Macros to draw dependency trees
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\environ\environ.sty"
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\trimspaces\trimspaces.sty"
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.4)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
+arrows.code.tex
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
+\arrowsize=\dimen291
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.3)
+\pgf@layerbox@background=\box56
+\pgf@layerboxsaved@background=\box57
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.1a (rcs-revision 1.2)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
+patterns.code.tex
+File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.1a (rcs-revision 1.13)
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.5)
+)
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\shapes\pgf
+libraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
+
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\shapes\pgf
+libraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.5)
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\shapes\pgf
+libraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2013/09/11 v3.0.1a (rcs-revision 1.6)
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\shapes\pgf
+libraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
+))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryshapes.callouts.code.tex
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\shapes\pgf
+libraryshapes.callouts.code.tex))
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+(C:\Users\albyr\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\shapes\pgf
+libraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
+
+\pgfnodepartlowerbox=\box58
+\pgfnodeparttwobox=\box59
+\pgfnodepartthreebox=\box60
+\pgfnodepartfourbox=\box61
+\pgfnodeparttwentybox=\box62
+\pgfnodepartnineteenbox=\box63
+\pgfnodeparteighteenbox=\box64
+\pgfnodepartseventeenbox=\box65
+\pgfnodepartsixteenbox=\box66
+\pgfnodepartfifteenbox=\box67
+\pgfnodepartfourteenbox=\box68
+\pgfnodepartthirteenbox=\box69
+\pgfnodeparttwelvebox=\box70
+\pgfnodepartelevenbox=\box71
+\pgfnodeparttenbox=\box72
+\pgfnodepartninebox=\box73
+\pgfnodeparteightbox=\box74
+\pgfnodepartsevenbox=\box75
+\pgfnodepartsixbox=\box76
+\pgfnodepartfivebox=\box77
+)))
+\pgf@layerbox@depgroups=\box78
+\pgf@layerboxsaved@depgroups=\box79
+\c@dt@labelid=\count178
+\xca=\skip128
+\yca=\skip129
+\xcb=\skip130
+\ycb=\skip131
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\bm.sty"
 Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
@@ -1131,12 +1536,12 @@ Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count160
-\FV@InFile=\read1
-\FV@TabBox=\box45
-\c@FancyVerbLine=\count161
-\FV@StepNumber=\count162
-\FV@OutFile=\write3
+\FV@CodeLineNo=\count179
+\FV@InFile=\read2
+\FV@TabBox=\box80
+\c@FancyVerbLine=\count180
+\FV@StepNumber=\count181
+\FV@OutFile=\write4
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\upquote\upquote.sty"
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
@@ -1298,20 +1703,20 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count163
-\output=\toks48
-\linenoprevgraf=\count164
-\linenumbersep=\dimen188
-\linenumberwidth=\dimen189
-\c@linenumber=\count165
-\c@pagewiselinenumber=\count166
-\c@LN@truepage=\count167
-\c@internallinenumber=\count168
-\c@internallinenumbers=\count169
-\quotelinenumbersep=\dimen190
-\bframerule=\dimen191
-\bframesep=\dimen192
-\bframebox=\box46
+\linenopenalty=\count182
+\output=\toks54
+\linenoprevgraf=\count183
+\linenumbersep=\dimen292
+\linenumberwidth=\dimen293
+\c@linenumber=\count184
+\c@pagewiselinenumber=\count185
+\c@LN@truepage=\count186
+\c@internallinenumber=\count187
+\c@internallinenumbers=\count188
+\quotelinenumbersep=\dimen294
+\bframerule=\dimen295
+\bframesep=\dimen296
+\bframebox=\box81
 
 
 LaTeX Warning: Command \@parboxrestore  has changed.
@@ -1323,38 +1728,38 @@ LaTeX Info: Redefining \\ on input line 3056.
 Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a wa
 rning from the lineno package on input line 37.
 
-\c@FV@TrueTabGroupLevel=\count170
-\c@FV@TrueTabCounter=\count171
-\FV@TabBox@Group=\box47
-\FV@TmpLength=\skip131
-\c@FV@HighlightLinesStart=\count172
-\c@FV@HighlightLinesStop=\count173
-\FV@BreakIndent=\dimen193
-\FV@BreakSymbolSepLeft=\dimen194
-\FV@BreakSymbolSepRight=\dimen195
-\FV@BreakSymbolIndentLeft=\dimen196
+\c@FV@TrueTabGroupLevel=\count189
+\c@FV@TrueTabCounter=\count190
+\FV@TabBox@Group=\box82
+\FV@TmpLength=\skip132
+\c@FV@HighlightLinesStart=\count191
+\c@FV@HighlightLinesStop=\count192
+\FV@BreakIndent=\dimen297
+\FV@BreakSymbolSepLeft=\dimen298
+\FV@BreakSymbolSepRight=\dimen299
+\FV@BreakSymbolIndentLeft=\dimen300
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 562.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-\FV@BreakSymbolIndentRight=\dimen197
-\c@FancyVerbLineBreakLast=\count174
-\FV@LineBox=\box48
-\FV@LineIndentBox=\box49
+\FV@BreakSymbolIndentRight=\dimen301
+\c@FancyVerbLineBreakLast=\count193
+\FV@LineBox=\box83
+\FV@LineIndentBox=\box84
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count175
-\calc@Bcount=\count176
-\calc@Adimen=\dimen198
-\calc@Bdimen=\dimen256
-\calc@Askip=\skip132
-\calc@Bskip=\skip133
+\calc@Acount=\count194
+\calc@Bcount=\count195
+\calc@Adimen=\dimen302
+\calc@Bdimen=\dimen303
+\calc@Askip=\skip133
+\calc@Bskip=\skip134
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count177
-\calc@Cskip=\skip134
+\calc@Ccount=\count196
+\calc@Cskip=\skip135
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\shellesc.sty"
 Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
@@ -1368,26 +1773,26 @@ Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
-\@xs@message=\write4
-\integerpart=\count178
-\decimalpart=\count179
+\@xs@message=\write5
+\integerpart=\count197
+\decimalpart=\count198
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\framed\framed.sty"
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip135
-\fb@frw=\dimen257
-\fb@frh=\dimen258
-\FrameRule=\dimen259
-\FrameSep=\dimen260
+\OuterFrameSep=\skip136
+\fb@frw=\dimen304
+\fb@frh=\dimen305
+\FrameRule=\dimen306
+\FrameSep=\dimen307
 )
-\minted@appexistsfile=\read2
-\minted@bgbox=\box50
-\minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count180
-\c@minted@pygmentizecounter=\count181
-\c@listing=\count182
+\minted@appexistsfile=\read3
+\minted@bgbox=\box85
+\minted@code=\write6
+\c@minted@FancyVerbLineTemp=\count266
+\c@minted@pygmentizecounter=\count267
+\c@listing=\count268
 )
 runsystem(if not exist _minted-report mkdir _minted-report)...executed.
 
@@ -1403,7 +1808,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 
-Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 136.
+Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 133.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
@@ -1412,44 +1817,51 @@ port.aex <nul: /p x=^%~$PATH:i>> report.aex)...executed.
 
 runsystem(del report.aex)...executed.
 
-(report.aux)
+(report.aux
+
+LaTeX Warning: Label `tab:trace-2' multiply defined.
+
+
+LaTeX Warning: Label `tab:trace-2' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 136.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 136.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 133.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 133.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    ... okay on input line 133.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count183
-\scratchdimen=\dimen261
-\scratchbox=\box51
-\nofMPsegments=\count184
-\nofMParguments=\count185
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count186
-\MPscratchDim=\dimen262
-\MPnumerator=\count187
-\makeMPintoPDFobject=\count188
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count269
+\scratchdimen=\dimen308
+\scratchbox=\box86
+\nofMPsegments=\count270
+\nofMParguments=\count271
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count272
+\MPscratchDim=\dimen309
+\MPnumerator=\count273
+\makeMPintoPDFobject=\count274
+\everyMPtoPDFconversion=\toks56
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1466,8 +1878,8 @@ G,.JBIG2,.JB2,.eps]
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: floatrow package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring ON on input line 136.
+\AtBeginShipoutBox=\box87
+Package hyperref Info: Link coloring ON on input line 133.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1475,15 +1887,15 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count189
+\c@section@level=\count275
 )
-LaTeX Info: Redefining \ref on input line 136.
-LaTeX Info: Redefining \pageref on input line 136.
-LaTeX Info: Redefining \nameref on input line 136.
+LaTeX Info: Redefining \ref on input line 133.
+LaTeX Info: Redefining \pageref on input line 133.
+LaTeX Info: Redefining \nameref on input line 133.
 
 (report.out) (report.out)
-\@outlinefile=\write6
-\openout6 = `report.out'.
+\@outlinefile=\write7
+\openout7 = `report.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1524,8 +1936,8 @@ Package geometry Warning: The marginal notes overrun the paper.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count190
-LaTeX Info: Redefining \microtypecontext on input line 136.
+\c@lstlisting=\count276
+LaTeX Info: Redefining \microtypecontext on input line 133.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1538,41 +1950,42 @@ Package microtype Info: No adjustment of character kerning.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-ppl.cfg"
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
+ABD: EveryShipout initializing macros
 
 Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 136.
+(hyperref)                setting the option has no effect on input line 133.
 
-Package hyperref Info: Option `breaklinks' set `true' on input line 136.
+Package hyperref Info: Option `breaklinks' set `true' on input line 133.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 136.
+(hyperref)                setting the option has no effect on input line 133.
 
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 138.
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 138
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 135.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 135
 .
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pplx.fd"
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 138
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 135
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlzplm.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 138
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 135
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omszplm.fd"
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 138
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 135
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxzplm.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 138
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 135
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd"
@@ -1583,208 +1996,138 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 138.
+(Font)              scaled to size 15.0049pt on input line 135.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 138.
+(Font)              scaled to size 10.42007pt on input line 135.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 138.
+(Font)              scaled to size 8.33606pt on input line 135.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 138.
+(Font)              scaled to size 15.0049pt on input line 135.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 138.
+(Font)              scaled to size 10.42007pt on input line 135.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 138.
+(Font)              scaled to size 8.33606pt on input line 135.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <14> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 141.
-LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <12> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 142.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 138.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 183.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 183.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 183.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 183.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 183.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 183.
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--155
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
+[]|\T1/pplj/m/n/12 (+20) [__ROOT__, gave, to,
+ []
 
+
+Overfull \hbox (42.47461pt too wide) in paragraph at lines 182--208
+ []|  [] 
  []
 
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 157.
+(Font)              scaled to size 11.40997pt on input line 210.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 157.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 157.
+(Font)              scaled to size 6.25204pt on input line 210.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 157.
+(Font)              scaled to size 11.40997pt on input line 210.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 157.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 157.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 160.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 160.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 160.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 160.
+(Font)              scaled to size 6.25204pt on input line 210.
 [1
 
 {C:/Users/albyr/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for TS1+pplj on input line 167
-.
+Underfull \hbox (badness 3449) in paragraph at lines 223--223
+[]|\T1/pplj/m/n/12 (+20) [missed, her, train, to,
+ []
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1pplj.fd"
-File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
+Underfull \hbox (badness 2495) in paragraph at lines 231--231
+[]|\T1/pplj/m/n/12 (+20) [__ROOT__, missed, to,
+ []
+
+
+Overfull \hbox (55.55463pt too wide) in paragraph at lines 214--238
+ []|  [] 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
-
- []
-
-[3] [4] <"figures/sparsity".png, id=87, 2059.695pt x 1207.51125pt>
-File: "figures/sparsity".png Graphic file (type png)
-
-<use "figures/sparsity".png>
-Package pdftex.def Info: "figures/sparsity".png used on input line 222.
-(pdftex.def)             Requested size: 597.50528pt x 350.27985pt.
- [5 <./figures/sparsity.png (PNG copy)>]
-Package microtype Info: Loading generic settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-Overfull \hbox (29.42973pt too wide) in paragraph at lines 259--263
-\T1/cmtt/m/n/12 __to__expeame__theit__i__done__the__ancon__is__ho__extudy__onio
-nt__wittils 
+Underfull \hbox (badness 1331) in paragraph at lines 257--257
+[]|\T1/pplj/m/n/12 (+20) [teacher, a, very, heavy,
  []
 
 
-Overfull \hbox (17.08275pt too wide) in paragraph at lines 264--268
-\T1/cmtt/m/n/12 __ind__cols__pecan__pubjectic__of__of__thersoo__spe__gold__al__
-hustare__ 
+Underfull \hbox (badness 7722) in paragraph at lines 258--258
+[]|\T1/pplj/m/n/12 (+20) [__ROOT__, gave, the,
  []
 
 
-Overfull \hbox (30.04709pt too wide) in paragraph at lines 264--268
-\T1/cmtt/m/n/12 leve__the__thiclitune__initmannew__wis__of__to__an__the__chis__
-lat__pars__ 
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
+[]|\T1/pplj/m/n/12 (+20) [__ROOT__, gave, a,
  []
 
 
-Overfull \hbox (47.95021pt too wide) in paragraph at lines 269--273
-\T1/cmtt/m/n/12 __wouril__ced__thave__rettiessindbase__inge__devisamicenter__in
-__the__tords__ 
+Overfull \hbox (42.47461pt too wide) in paragraph at lines 245--273
+ []|  [] 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
+[3]
+Overfull \hbox (51.59462pt too wide) in paragraph at lines 280--298
+ []|  [] 
  []
 
+[4] (report.bbl
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--296
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
- []
-
-[7]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 381--383
-
- []
-
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/pplj/m/sc/12'.
-(microtype)             Ignoring protrusion settings for this character.
-\openout3 = `report.pyg'.
-
-(_minted-report/default-pyg-prefix.pygstyle) (_minted-report/default.pygstyle)
-(_minted-report/55CD3F91388B0D293458FC3A6F43DE0B7C2E7F49E087B8E8E8DF5244CE287E3
-9.pygtex
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
- [9]
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 12.
-
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmtt.fd"
-File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `cmtt' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [10]
-[11])
-\openout3 = `report.pyg'.
-
-
-(_minted-report/AC2D76E753BE4A25E7B94ABBCE420CB97C2E7F49E087B8E8E8DF5244CE287E3
-9.pygtex [12])
-\openout3 = `report.pyg'.
-
-
-(_minted-report/D52756737E4CFE0112C6E2AABE47005A7C2E7F49E087B8E8E8DF5244CE287E3
-9.pygtex [13]) [14]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[15]
-\openout3 = `report.pyg'.
-
-
-(_minted-report/36AB0560E2CA3FC7074610E3F934F9397C2E7F49E087B8E8E8DF5244CE287E3
-9.pygtex [16] [17]) (report.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 835.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 835.
+) [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
  (report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 835.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 835.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 0A262C73A6FBFB795CA307FED7066E7F;865.
-runsystem(del report.pyg)...executed.
+(rerunfilecheck)             Checksum: 1DB6ACF0CA858A323D5862A2C7FCFE6D;48.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 835.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 305.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22289 strings out of 493333
- 380798 string characters out of 3139194
- 734420 words of memory out of 3000000
- 25045 multiletter control sequences out of 15000+200000
- 93012 words of font info for 376 fonts, out of 3000000 for 9000
+ 34515 strings out of 493333
+ 678941 string characters out of 3139194
+ 1025785 words of memory out of 3000000
+ 37278 multiletter control sequences out of 15000+200000
+ 68392 words of font info for 196 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 57i,21n,79p,959b,6584s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\albyr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\tctt1000.pk> <C:\Users\albyr\AppData\Local\MiKTeX\2.9\fonts\pk\lj
-four\jknappen\ec\dpi600\ecit1000.pk> <C:\Users\albyr\AppData\Local\MiKTeX\2.9\f
-onts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\albyr\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk>{C:/Program Files/MiKTe
-X 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplbj8a.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmr.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/fpl/fplrij8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palat
-ino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on report.pdf (18 pages, 442355 bytes).
+ 64i,21n,107p,959b,16436s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/fpl/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
+/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr
+8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on report.pdf (5 pages, 74407 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 61046 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 66 PDF objects out of 1000 (max. 8388607)
+ 11 named destinations out of 1000 (max. 500000)
+ 51221 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -1,0 +1,303 @@
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & [\_\_ROOT\_\_] & [I, gave, an, apple, to, the, teacher] & SHIFT & \\ 
+1 & [\_\_ROOT\_\_, I] & [gave, an, apple, to, the, teacher] & SHIFT & \\ 
+2 & [\_\_ROOT\_\_, I, gave] & [an, apple, to, the, teacher] & LEFT & ( I $\leftarrow$ gave )\\ 
+3 & [\_\_ROOT\_\_, gave] & [an, apple, to, the, teacher] & SHIFT & \\ 
+4 & [\_\_ROOT\_\_, gave, an] & [apple, to, the, teacher] & SHIFT & \\ 
+5 & [\_\_ROOT\_\_, gave, an, apple] & [to, the, teacher] & LEFT & ( an $\leftarrow$ apple )\\ 
+6 & [\_\_ROOT\_\_, gave, apple] & [to, the, teacher] & RIGHT & ( gave $\rightarrow$ apple )\\ 
+7 & [\_\_ROOT\_\_, gave] & [to, the, teacher] & SHIFT & \\ 
+8 & [\_\_ROOT\_\_, gave, to] & [the, teacher] & SHIFT & \\ 
+9 & [\_\_ROOT\_\_, gave, to, the] & [teacher] & SHIFT & \\ 
+10 & [\_\_ROOT\_\_, gave, to, the, teacher] & [] & LEFT & ( the $\leftarrow$ teacher )\\ 
+11 & [\_\_ROOT\_\_, gave, to, teacher] & [] & LEFT & ( to $\leftarrow$ teacher )\\ 
+12 & [\_\_ROOT\_\_, gave, teacher] & [] & RIGHT & ( gave $\rightarrow$ teacher )\\ 
+13 & [\_\_ROOT\_\_, gave] & [] & RIGHT & ( \_\_ROOT\_\_ $\rightarrow$ gave )\\ 
+14 & [\_\_ROOT\_\_] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & [\_\_ROOT\_\_] & [Mary, missed, her, train, to, work] & SHIFT & \\ 
+1 & [\_\_ROOT\_\_, Mary] & [missed, her, train, to, work] & SHIFT & \\ 
+2 & [\_\_ROOT\_\_, Mary, missed] & [her, train, to, work] & LEFT & ( Mary $\leftarrow$ missed )\\ 
+3 & [\_\_ROOT\_\_, missed] & [her, train, to, work] & SHIFT & \\ 
+4 & [\_\_ROOT\_\_, missed, her] & [train, to, work] & SHIFT & \\ 
+5 & [\_\_ROOT\_\_, missed, her, train] & [to, work] & LEFT & ( her $\leftarrow$ train )\\ 
+6 & [\_\_ROOT\_\_, missed, train] & [to, work] & RIGHT & ( missed $\rightarrow$ train )\\ 
+7 & [\_\_ROOT\_\_, missed] & [to, work] & SHIFT & \\ 
+8 & [\_\_ROOT\_\_, missed, to] & [work] & SHIFT & \\ 
+9 & [\_\_ROOT\_\_, missed, to, work] & [] & LEFT & ( to $\leftarrow$ work )\\ 
+10 & [\_\_ROOT\_\_, missed, work] & [] & RIGHT & ( missed $\rightarrow$ work )\\ 
+11 & [\_\_ROOT\_\_, missed] & [] & RIGHT & ( \_\_ROOT\_\_ $\rightarrow$ missed )\\ 
+12 & [\_\_ROOT\_\_] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & [\_\_ROOT\_\_] & [John, gave, the, teacher, a, very, heavy, book] & SHIFT & \\ 
+1 & [\_\_ROOT\_\_, John] & [gave, the, teacher, a, very, heavy, book] & SHIFT & \\ 
+2 & [\_\_ROOT\_\_, John, gave] & [the, teacher, a, very, heavy, book] & LEFT & ( John $\leftarrow$ gave )\\ 
+3 & [\_\_ROOT\_\_, gave] & [the, teacher, a, very, heavy, book] & SHIFT & \\ 
+4 & [\_\_ROOT\_\_, gave, the] & [teacher, a, very, heavy, book] & SHIFT & \\ 
+5 & [\_\_ROOT\_\_, gave, the, teacher] & [a, very, heavy, book] & LEFT & ( the $\leftarrow$ teacher )\\ 
+6 & [\_\_ROOT\_\_, gave, teacher] & [a, very, heavy, book] & RIGHT & ( gave $\rightarrow$ teacher )\\ 
+7 & [\_\_ROOT\_\_, gave] & [a, very, heavy, book] & SHIFT & \\ 
+8 & [\_\_ROOT\_\_, gave, a] & [very, heavy, book] & SHIFT & \\ 
+9 & [\_\_ROOT\_\_, gave, a, very] & [heavy, book] & SHIFT & \\ 
+10 & [\_\_ROOT\_\_, gave, a, very, heavy] & [book] & LEFT & ( very $\leftarrow$ heavy )\\ 
+11 & [\_\_ROOT\_\_, gave, a, heavy] & [book] & SHIFT & \\ 
+12 & [\_\_ROOT\_\_, gave, a, heavy, book] & [] & LEFT & ( heavy $\leftarrow$ book )\\ 
+13 & [\_\_ROOT\_\_, gave, a, book] & [] & LEFT & ( a $\leftarrow$ book )\\ 
+14 & [\_\_ROOT\_\_, gave, book] & [] & RIGHT & ( gave $\rightarrow$ book )\\ 
+15 & [\_\_ROOT\_\_, gave] & [] & RIGHT & ( \_\_ROOT\_\_ $\rightarrow$ gave )\\ 
+16 & [\_\_ROOT\_\_] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & [\_\_ROOT\_\_] & [The, sun, shines] & SHIFT & \\ 
+1 & [\_\_ROOT\_\_, The] & [sun, shines] & SHIFT & \\ 
+2 & [\_\_ROOT\_\_, The, sun] & [shines] & LEFT & ( The $\leftarrow$ sun )\\ 
+3 & [\_\_ROOT\_\_, sun] & [shines] & SHIFT & \\ 
+4 & [\_\_ROOT\_\_, sun, shines] & [] & LEFT & ( sun $\leftarrow$ shines )\\ 
+5 & [\_\_ROOT\_\_, shines] & [] & RIGHT & ( \_\_ROOT\_\_ $\rightarrow$ shines )\\ 
+6 & [\_\_ROOT\_\_] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher'] & STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher'] & STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'I'] & ['gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'I', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.LEFT & ( I <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'an'] & ['apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'an', 'apple'] & ['to', 'the', 'teacher'] & Action.LEFT & ( an <-- apple )\\ 
+6 & ['__ROOT__', 'gave', 'apple'] & ['to', 'the', 'teacher'] & Action.RIGHT & ( gave --> apple )\\ 
+7 & ['__ROOT__', 'gave'] & ['to', 'the', 'teacher'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'to'] & ['the', 'teacher'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'to', 'the'] & ['teacher'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'to', 'the', 'teacher'] & [] & Action.LEFT & ( the <-- teacher )\\ 
+11 & ['__ROOT__', 'gave', 'to', 'teacher'] & [] & Action.LEFT & ( to <-- teacher )\\ 
+12 & ['__ROOT__', 'gave', 'teacher'] & [] & Action.RIGHT & ( gave --> teacher )\\ 
+13 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+14 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['Mary', 'missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'Mary'] & ['missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'Mary', 'missed'] & ['her', 'train', 'to', 'work'] & Action.LEFT & ( Mary <-- missed )\\ 
+3 & ['__ROOT__', 'missed'] & ['her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'missed', 'her'] & ['train', 'to', 'work'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'missed', 'her', 'train'] & ['to', 'work'] & Action.LEFT & ( her <-- train )\\ 
+6 & ['__ROOT__', 'missed', 'train'] & ['to', 'work'] & Action.RIGHT & ( missed --> train )\\ 
+7 & ['__ROOT__', 'missed'] & ['to', 'work'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'missed', 'to'] & ['work'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'missed', 'to', 'work'] & [] & Action.LEFT & ( to <-- work )\\ 
+10 & ['__ROOT__', 'missed', 'work'] & [] & Action.RIGHT & ( missed --> work )\\ 
+11 & ['__ROOT__', 'missed'] & [] & Action.RIGHT & ( __ROOT__ --> missed )\\ 
+12 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['John', 'gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'John'] & ['gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'John', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.LEFT & ( John <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'the'] & ['teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'the', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.LEFT & ( the <-- teacher )\\ 
+6 & ['__ROOT__', 'gave', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.RIGHT & ( gave --> teacher )\\ 
+7 & ['__ROOT__', 'gave'] & ['a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'a'] & ['very', 'heavy', 'book'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'a', 'very'] & ['heavy', 'book'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'a', 'very', 'heavy'] & ['book'] & Action.LEFT & ( very <-- heavy )\\ 
+11 & ['__ROOT__', 'gave', 'a', 'heavy'] & ['book'] & Action.SHIFT & \\ 
+12 & ['__ROOT__', 'gave', 'a', 'heavy', 'book'] & [] & Action.LEFT & ( heavy <-- book )\\ 
+13 & ['__ROOT__', 'gave', 'a', 'book'] & [] & Action.LEFT & ( a <-- book )\\ 
+14 & ['__ROOT__', 'gave', 'book'] & [] & Action.RIGHT & ( gave --> book )\\ 
+15 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+16 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['The', 'sun', 'shines'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'The'] & ['sun', 'shines'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'The', 'sun'] & ['shines'] & Action.LEFT & ( The <-- sun )\\ 
+3 & ['__ROOT__', 'sun'] & ['shines'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'sun', 'shines'] & [] & Action.LEFT & ( sun <-- shines )\\ 
+5 & ['__ROOT__', 'shines'] & [] & Action.RIGHT & ( __ROOT__ --> shines )\\ 
+6 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'I'] & ['gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'I', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.LEFT & ( I <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'an'] & ['apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'an', 'apple'] & ['to', 'the', 'teacher'] & Action.LEFT & ( an <-- apple )\\ 
+6 & ['__ROOT__', 'gave', 'apple'] & ['to', 'the', 'teacher'] & Action.RIGHT & ( gave --> apple )\\ 
+7 & ['__ROOT__', 'gave'] & ['to', 'the', 'teacher'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'to'] & ['the', 'teacher'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'to', 'the'] & ['teacher'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'to', 'the', 'teacher'] & [] & Action.LEFT & ( the <-- teacher )\\ 
+11 & ['__ROOT__', 'gave', 'to', 'teacher'] & [] & Action.LEFT & ( to <-- teacher )\\ 
+12 & ['__ROOT__', 'gave', 'teacher'] & [] & Action.RIGHT & ( gave --> teacher )\\ 
+13 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+14 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['Mary', 'missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'Mary'] & ['missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'Mary', 'missed'] & ['her', 'train', 'to', 'work'] & Action.LEFT & ( Mary <-- missed )\\ 
+3 & ['__ROOT__', 'missed'] & ['her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'missed', 'her'] & ['train', 'to', 'work'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'missed', 'her', 'train'] & ['to', 'work'] & Action.LEFT & ( her <-- train )\\ 
+6 & ['__ROOT__', 'missed', 'train'] & ['to', 'work'] & Action.RIGHT & ( missed --> train )\\ 
+7 & ['__ROOT__', 'missed'] & ['to', 'work'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'missed', 'to'] & ['work'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'missed', 'to', 'work'] & [] & Action.LEFT & ( to <-- work )\\ 
+10 & ['__ROOT__', 'missed', 'work'] & [] & Action.RIGHT & ( missed --> work )\\ 
+11 & ['__ROOT__', 'missed'] & [] & Action.RIGHT & ( __ROOT__ --> missed )\\ 
+12 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['John', 'gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'John'] & ['gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'John', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.LEFT & ( John <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'the'] & ['teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'the', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.LEFT & ( the <-- teacher )\\ 
+6 & ['__ROOT__', 'gave', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.RIGHT & ( gave --> teacher )\\ 
+7 & ['__ROOT__', 'gave'] & ['a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'a'] & ['very', 'heavy', 'book'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'a', 'very'] & ['heavy', 'book'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'a', 'very', 'heavy'] & ['book'] & Action.LEFT & ( very <-- heavy )\\ 
+11 & ['__ROOT__', 'gave', 'a', 'heavy'] & ['book'] & Action.SHIFT & \\ 
+12 & ['__ROOT__', 'gave', 'a', 'heavy', 'book'] & [] & Action.LEFT & ( heavy <-- book )\\ 
+13 & ['__ROOT__', 'gave', 'a', 'book'] & [] & Action.LEFT & ( a <-- book )\\ 
+14 & ['__ROOT__', 'gave', 'book'] & [] & Action.RIGHT & ( gave --> book )\\ 
+15 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+16 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['The', 'sun', 'shines'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'The'] & ['sun', 'shines'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'The', 'sun'] & ['shines'] & Action.LEFT & ( The <-- sun )\\ 
+3 & ['__ROOT__', 'sun'] & ['shines'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'sun', 'shines'] & [] & Action.LEFT & ( sun <-- shines )\\ 
+5 & ['__ROOT__', 'shines'] & [] & Action.RIGHT & ( __ROOT__ --> shines )\\ 
+6 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'I'] & ['gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'I', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.LEFT & ( I <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'an'] & ['apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'an', 'apple'] & ['to', 'the', 'teacher'] & Action.LEFT & ( an <-- apple )\\ 
+6 & ['__ROOT__', 'gave', 'apple'] & ['to', 'the', 'teacher'] & Action.RIGHT & ( gave --> apple )\\ 
+7 & ['__ROOT__', 'gave'] & ['to', 'the', 'teacher'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'to'] & ['the', 'teacher'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'to', 'the'] & ['teacher'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'to', 'the', 'teacher'] & [] & Action.LEFT & ( the <-- teacher )\\ 
+11 & ['__ROOT__', 'gave', 'to', 'teacher'] & [] & Action.LEFT & ( to <-- teacher )\\ 
+12 & ['__ROOT__', 'gave', 'teacher'] & [] & Action.RIGHT & ( gave --> teacher )\\ 
+13 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+14 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['Mary', 'missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'Mary'] & ['missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'Mary', 'missed'] & ['her', 'train', 'to', 'work'] & Action.LEFT & ( Mary <-- missed )\\ 
+3 & ['__ROOT__', 'missed'] & ['her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'missed', 'her'] & ['train', 'to', 'work'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'missed', 'her', 'train'] & ['to', 'work'] & Action.LEFT & ( her <-- train )\\ 
+6 & ['__ROOT__', 'missed', 'train'] & ['to', 'work'] & Action.RIGHT & ( missed --> train )\\ 
+7 & ['__ROOT__', 'missed'] & ['to', 'work'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'missed', 'to'] & ['work'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'missed', 'to', 'work'] & [] & Action.LEFT & ( to <-- work )\\ 
+10 & ['__ROOT__', 'missed', 'work'] & [] & Action.RIGHT & ( missed --> work )\\ 
+11 & ['__ROOT__', 'missed'] & [] & Action.RIGHT & ( __ROOT__ --> missed )\\ 
+12 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['John', 'gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'John'] & ['gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'John', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.LEFT & ( John <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'the'] & ['teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'the', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.LEFT & ( the <-- teacher )\\ 
+6 & ['__ROOT__', 'gave', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.RIGHT & ( gave --> teacher )\\ 
+7 & ['__ROOT__', 'gave'] & ['a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'a'] & ['very', 'heavy', 'book'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'a', 'very'] & ['heavy', 'book'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'a', 'very', 'heavy'] & ['book'] & Action.LEFT & ( very <-- heavy )\\ 
+11 & ['__ROOT__', 'gave', 'a', 'heavy'] & ['book'] & Action.SHIFT & \\ 
+12 & ['__ROOT__', 'gave', 'a', 'heavy', 'book'] & [] & Action.LEFT & ( heavy <-- book )\\ 
+13 & ['__ROOT__', 'gave', 'a', 'book'] & [] & Action.LEFT & ( a <-- book )\\ 
+14 & ['__ROOT__', 'gave', 'book'] & [] & Action.RIGHT & ( gave --> book )\\ 
+15 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+16 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['The', 'sun', 'shines'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'The'] & ['sun', 'shines'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'The', 'sun'] & ['shines'] & Action.LEFT & ( The <-- sun )\\ 
+3 & ['__ROOT__', 'sun'] & ['shines'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'sun', 'shines'] & [] & Action.LEFT & ( sun <-- shines )\\ 
+5 & ['__ROOT__', 'shines'] & [] & Action.RIGHT & ( __ROOT__ --> shines )\\ 
+6 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'I'] & ['gave', 'an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'I', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.LEFT & ( I <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['an', 'apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'an'] & ['apple', 'to', 'the', 'teacher'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'an', 'apple'] & ['to', 'the', 'teacher'] & Action.LEFT & ( an <-- apple )\\ 
+6 & ['__ROOT__', 'gave', 'apple'] & ['to', 'the', 'teacher'] & Action.RIGHT & ( gave --> apple )\\ 
+7 & ['__ROOT__', 'gave'] & ['to', 'the', 'teacher'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'to'] & ['the', 'teacher'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'to', 'the'] & ['teacher'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'to', 'the', 'teacher'] & [] & Action.LEFT & ( the <-- teacher )\\ 
+11 & ['__ROOT__', 'gave', 'to', 'teacher'] & [] & Action.LEFT & ( to <-- teacher )\\ 
+12 & ['__ROOT__', 'gave', 'teacher'] & [] & Action.RIGHT & ( gave --> teacher )\\ 
+13 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+14 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['Mary', 'missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'Mary'] & ['missed', 'her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'Mary', 'missed'] & ['her', 'train', 'to', 'work'] & Action.LEFT & ( Mary <-- missed )\\ 
+3 & ['__ROOT__', 'missed'] & ['her', 'train', 'to', 'work'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'missed', 'her'] & ['train', 'to', 'work'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'missed', 'her', 'train'] & ['to', 'work'] & Action.LEFT & ( her <-- train )\\ 
+6 & ['__ROOT__', 'missed', 'train'] & ['to', 'work'] & Action.RIGHT & ( missed --> train )\\ 
+7 & ['__ROOT__', 'missed'] & ['to', 'work'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'missed', 'to'] & ['work'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'missed', 'to', 'work'] & [] & Action.LEFT & ( to <-- work )\\ 
+10 & ['__ROOT__', 'missed', 'work'] & [] & Action.RIGHT & ( missed --> work )\\ 
+11 & ['__ROOT__', 'missed'] & [] & Action.RIGHT & ( __ROOT__ --> missed )\\ 
+12 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['John', 'gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'John'] & ['gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'John', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.LEFT & ( John <-- gave )\\ 
+3 & ['__ROOT__', 'gave'] & ['the', 'teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'gave', 'the'] & ['teacher', 'a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+5 & ['__ROOT__', 'gave', 'the', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.LEFT & ( the <-- teacher )\\ 
+6 & ['__ROOT__', 'gave', 'teacher'] & ['a', 'very', 'heavy', 'book'] & Action.RIGHT & ( gave --> teacher )\\ 
+7 & ['__ROOT__', 'gave'] & ['a', 'very', 'heavy', 'book'] & Action.SHIFT & \\ 
+8 & ['__ROOT__', 'gave', 'a'] & ['very', 'heavy', 'book'] & Action.SHIFT & \\ 
+9 & ['__ROOT__', 'gave', 'a', 'very'] & ['heavy', 'book'] & Action.SHIFT & \\ 
+10 & ['__ROOT__', 'gave', 'a', 'very', 'heavy'] & ['book'] & Action.LEFT & ( very <-- heavy )\\ 
+11 & ['__ROOT__', 'gave', 'a', 'heavy'] & ['book'] & Action.SHIFT & \\ 
+12 & ['__ROOT__', 'gave', 'a', 'heavy', 'book'] & [] & Action.LEFT & ( heavy <-- book )\\ 
+13 & ['__ROOT__', 'gave', 'a', 'book'] & [] & Action.LEFT & ( a <-- book )\\ 
+14 & ['__ROOT__', 'gave', 'book'] & [] & Action.RIGHT & ( gave --> book )\\ 
+15 & ['__ROOT__', 'gave'] & [] & Action.RIGHT & ( __ROOT__ --> gave )\\ 
+16 & ['__ROOT__'] & [] & DONE & \\ 
+
+STEP & STACK & BUFFER & ACTION & OUTPUT\\ 
+0 & ['__ROOT__'] & ['The', 'sun', 'shines'] & Action.SHIFT & \\ 
+1 & ['__ROOT__', 'The'] & ['sun', 'shines'] & Action.SHIFT & \\ 
+2 & ['__ROOT__', 'The', 'sun'] & ['shines'] & Action.LEFT & ( The <-- sun )\\ 
+3 & ['__ROOT__', 'sun'] & ['shines'] & Action.SHIFT & \\ 
+4 & ['__ROOT__', 'sun', 'shines'] & [] & Action.LEFT & ( sun <-- shines )\\ 
+5 & ['__ROOT__', 'shines'] & [] & Action.RIGHT & ( __ROOT__ --> shines )\\ 
+6 & ['__ROOT__'] & [] & DONE & \\ 
+

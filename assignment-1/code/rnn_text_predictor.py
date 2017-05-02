@@ -89,8 +89,8 @@ for v in versions:
 # max_length = max([len(x) for x in lines])
 # # Pad each string to the max length
 # lines = [x + "_" * (max_length - len(x)) for x in lines]
-max_length = 30
-lines = [x + "_" * (max_length - len(x)) if len(x) < 30 else x[:30] for x in lines]
+max_length = 100
+lines = [x + "_" * (max_length - len(x)) if len(x) < max_length else x[:max_length] for x in lines]
     
 
 #%%
@@ -125,8 +125,8 @@ test_to_pred = [lines_to_predict_num_1_hot[i] for i in test_indices]
 print(len(train_set), len(train_to_pred), len(test_set), len(test_to_pred))
 
 
-train_set = np.reshape(train_set, (len(train_set), 30, 1))
-test_set = np.reshape(test_set, (len(test_set), 30, 1))
+train_set = np.reshape(train_set, (len(train_set), max_length, 1))
+test_set = np.reshape(test_set, (len(test_set), max_length, 1))
 train_to_pred_array = np.asarray(train_to_pred)
 
 #%%

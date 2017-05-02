@@ -1,0 +1,8 @@
+[('I', 'PRON'), ('gave', 'VERB'), ('an', 'DET'), ('apple', 'NOUN'), ('to', 'PRT'), ('the', 'DET'), ('teacher', 'NOUN')]
+[('Mary', 'NOUN'), ('missed', 'VERB'), ('her', 'PRON'), ('train', 'NOUN'), ('to', 'PRT'), ('work', 'VERB')]
+[('John', 'NOUN'), ('gave', 'VERB'), ('the', 'DET'), ('teacher', 'NOUN'), ('a', 'DET'), ('very', 'ADV'), ('heavy', 'ADJ'), ('book', 'NOUN')]
+[('The', 'DET'), ('sun', 'NOUN'), ('shines', 'NOUN')]
+[('This', 'DET'), ('is', 'VERB'), ('the', 'DET'), ('dog', 'NOUN'), ('that', 'DET'), ('chased', 'VERB'), ('the', 'DET'), ('cat', 'NOUN')]
+[('I', 'PRON'), ('saw', 'VERB'), ('the', 'DET'), ('doctor', 'NOUN'), ('this', 'DET'), ('morning', 'NOUN'), ('who', 'PRON'), ('is', 'VERB'), ('treating', 'VERB'), ('me', 'PRON')]
+[('This', 'DET'), ('is', 'VERB'), ('the', 'DET'), ('cat', 'NOUN'), ('that', 'ADP'), ('the', 'DET'), ('dog', 'NOUN'), ('chased', 'VERB')]
+[('John', 'NOUN'), ('is', 'VERB'), ('eager', 'ADJ'), ('to', 'PRT'), ('please', 'VERB')]
