@@ -1,3 +1,6 @@
+# Use NLTK for automatic POS tagging.
+# Just a check to compare NLTK results with the hand-made ones.
+
 import nltk
 from nltk.stem import WordNetLemmatizer
 
