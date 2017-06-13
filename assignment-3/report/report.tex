@@ -1,0 +1,141 @@
+\documentclass[
+12pt,
+a4paper,
+oneside,
+headinclude,
+footinclude]{article}
+
+\usepackage[table,xcdraw,svgnames, dvipsnames]{xcolor}
+\usepackage[capposition=bottom]{floatrow}
+\usepackage[colorlinks]{hyperref} % to add hyperlinks
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{csquotes}
+\usepackage{amsmath} % For the big bracket
+\usepackage[export]{adjustbox}[2011/08/13]
+% \usepackage{subfig}
+\usepackage{array}
+\usepackage{url}
+\usepackage{graphicx} % to insert images
+\usepackage{titlepic} % to insert image on front page
+\usepackage{geometry} % to define margin
+\usepackage{listings} % to add code
+\usepackage{caption}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage{color}
+\usepackage{subcaption}
+\usepackage[nochapters, dottedtoc]{classicthesis}
+\usepackage{listings} % For Python code
+
+\usepackage[ruled]{algorithm2e} % For pseudo-code
+
+\usepackage{mathpazo}
+
+\usepackage{amsthm} % For definitions and theorems
+
+\theoremstyle{definition} % Define the style of definitions
+\newtheorem{definition}{Definition}[section]
+
+
+\usepackage{lipsum} % For testing
+\usepackage{color}
+
+\usepackage{etoolbox}
+
+\usepackage{bm} % For bold math
+
+\usepackage{setspace}
+
+
+% For tables
+\usepackage{amssymb}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+\definecolor{webbrown}{rgb}{.6,0,0}
+
+\usepackage{titlesec} % to customize titles
+\titleformat{\chapter}{\normalfont\huge}{\textbf{\thechapter.}}{20pt}{\huge\textbf}[\vspace{2ex}\titlerule] % to customize chapter title aspect
+\titleformat{\section} % to customize section titles
+{\fontsize{14}{15}\bfseries}{\thesection}{1em}{}
+
+\titlespacing*{\chapter}{0pt}{-50pt}{20pt} % to customize chapter title space
+
+\graphicspath{ {../Figures/} } % images folder
+\parindent0pt \parskip10pt % make block paragraphs
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm,headheight=3cm,headsep=3cm,footskip=1cm} % define margin
+\hyphenation{Fortran hy-phen-ation}
+
+\AtBeginDocument{%
+	\hypersetup{
+		colorlinks=true, breaklinks=true, bookmarks=true,
+		urlcolor=webbrown, citecolor=Black, linkcolor=Black% Link colors
+}}
+
+\pagestyle{plain}
+\title{\textbf{NLP Assignment 3 \\ Sentiment Analysis}}
+\author{{Alberto Parravicini}}
+\date{}	% default \today
+
+% =============================================== BEGIN
+
+
+\begin{document}
+\maketitle
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\section{Introduction}
+The goal of the assigment is to experiment with different techniques used for sentiment analysis, and compare the results obtained. \\
+As a starting point, it was used the dataset of \textbf{Digital Music} reviews on \textbf{Amazon}, compiled by \textbf{Julian McAuley}. The goal was to predict the score given to a product by analysing its review, by taking advantage of \textit{Natural Language Processing} and \textit{Machine Learning}.\\
+This report will present various preprocessing and modelling techniques that have been tried, such as \textbf{Latent Semantic Analysis} and \textbf{Support Vector Machines},
+and discuss their efficiency.
+
+The first section of the report will detail the data that have been used, and the preprocessing techniques applied to them.\\
+The second section is focused on the models that were used for sentiment analysis, and on the selection and validation techniques that have been adopted.
+The third and last section will present the results of the models, and discuss problems and potential improvements that can be adopted.
+
+\section{Data analysis and pre-processing}
+The dataset used in the assignment is a collection of \textbf{Digital Music} reviews of songs and albums sold on \textbf{Amazon}. \\
+Each review is stored as a \textbf{JSON}, with different fields such as the \textit{reviewer name}, the \textit{review date}, how many people found it \textit{useful}, and more.\\
+Our goal is to process the \textbf{review text} (and the \textbf{review title}), in order to predict the review score. Scores range on a $1-5$ scale, and can be interpreted as the \textbf{sentiment} of the reviewer towards the product he has bought.\\
+It should be noted that if our goal was to predict the scores as accurately as possible, then all the information in the review should be taken into account (such as the \textit{reviewer name}); however, our focus is on the text analysis, and we can discard those fields.
+
+The dataset contains $64.706$ reviews, but we will use a smaller subset in order to reduce the computational costs of the algorithms, and to check whether using subsets of higher size can be beneficial.\\
+Indeed, moving from a subset of $10000$ entries to a subset of $40000$ entries seems to positively impact the quality of the predictions. It can be assumed that using even more data could give further improvements, at the cost of greatly increased execution time of the training.
+\vspace{15mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth, center, keepaspectratio=1]{{"figures/7"}.png}
+    \caption{\emph{Distribution of the review scores in the dataset.}}
+\end{figure}
+
+\newpage
+If we look at the distribution of the review scores in the dataset, it is clear how reviews with high scores are overrepresented (it's not common to buy a song one doesn't like). This has a few important implications:
+
+\begin{itemize}
+    \item Any model we use will have to consider the \textit{a-priori} probability of each class, as they are different.
+    \item If our goal is to infer the sentiment of a sentence and not to predict the review score, it could be beneficial to build a new dataset in which every score has the same probability of appearing. However, this would heavily reduce the data at our disposal, and overall lead to worse results.
+    \item Models based on regression are likely to perform badly, compared to multi-class classification models. Most regression models (such as any model based on linear regression) assume the output to be \textit{normally} (or at least symmetrically) distributed, while we have a highly skewed distribution. Models won't be able to accurately predict the values at the extremes of the distribution. On the other hand, multi-class classification will ignore the ordinal relation in the scores, hence using less information that they could.
+    \item A trivial predictor that always give the majority class will have an accuracy of $54\%$ This value is our baseline, and will prove surprisingly hard to beat.
+\end{itemize}
+
+\subsection{Preprocessing}
+A number of preprocessing techniques can be applied to the dataset, depending on what kind of approach we want to use to predict the scores. Different techniques have been adopted, and they are detailed below.
+
+First, it was decided to work with a \textbf{unigram} model. For each review (from now on referred to as \textit{document}), we can count the number of occurrences of each word in the vocabulary. This will give a \textbf{term-document} matrix, which could be used as-is, or processed further.
+
+To build a \textbf{term-document} matrix, there are a few things to keep into account.\\
+First, we need to treat differently words that are in a \textbf{negated context}: it is obviously different to say that something is \textit{"good"} compared to being \textit{"not good"}, and we have to consider that when analysing the sentences. A common approach to deal with negated contexts is to append a prefix (e.g. \textbf{NOT\_}) to words that are between a negation and the following punctuation mark.\\
+Instead, a more refined approach was taken: first, every document was analysed using the \textbf{spaCy} library for \textit{Python}. This will give the dependency tree of each sentence. Then, one can look for arcs labelled as \textbf{neg}, which denote a negation relationship: it is possible to append the \textbf{NOT\_} prefix to any word dependent on the head of the \textbf{neg} arc; this will mark the entire subordinate clause, which is more precise than the first basic approach that was presented. 
+
+
+\bibliographystyle{plainurl}
+\bibliography{bibliography}
+
+\end{document}
