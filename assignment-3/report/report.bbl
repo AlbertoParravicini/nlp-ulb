@@ -1,26 +1,10 @@
 \begin{thebibliography}{1}
 
-\bibitem{cavnar1994n}
-William~B Cavnar, John~M Trenkle, et~al.
-\newblock N-gram-based text categorization.
-\newblock {\em Ann Arbor MI}, 48113(2):161--175, 1994.
-
-\bibitem{frasconi2002hidden}
-Paolo Frasconi, Giovanni Soda, and Alessandro Vullo.
-\newblock Hidden markov models for text categorization in multi-page documents.
-\newblock {\em Journal of Intelligent Information Systems}, 18(2-3):195--217,
-  2002.
-
-\bibitem{kanaris2007words}
-Ioannis Kanaris, Konstantinos Kanaris, Ioannis Houvardas, and Efstathios
-  Stamatatos.
-\newblock Words versus character n-grams for anti-spam filtering.
-\newblock {\em International Journal on Artificial Intelligence Tools},
-  16(06):1047--1067, 2007.
-
-\bibitem{lai2015recurrent}
-Siwei Lai, Liheng Xu, Kang Liu, and Jun Zhao.
-\newblock Recurrent convolutional neural networks for text classification.
-\newblock In {\em AAAI}, volume 333, pages 2267--2273, 2015.
+\bibitem{hutto2014vader}
+Clayton~J Hutto and Eric Gilbert.
+\newblock Vader: A parsimonious rule-based model for sentiment analysis of
+  social media text.
+\newblock In {\em Eighth international AAAI conference on weblogs and social
+  media}, 2014.
 
 \end{thebibliography}

@@ -14,6 +14,7 @@ from sklearn.naive_bayes import MultinomialNB, GaussianNB, BernoulliNB
 from sklearn.svm import SVC
 
 from bokeh.plotting import figure, output_file, show
+from bokeh.io import gridplot
 from bokeh.charts import Bar
 
 #%% LOAD DATA
@@ -25,35 +26,48 @@ df_sent.drop('original_text', axis=1, inplace=True)
 
 
 output_file("plot.html")
-p = Bar(df_sent, label='score', values='pos', agg='mean',
-        title="Average Sentiment Scores")
 
 # COMPOUND
 df_sent_melt = pd.melt(df_sent, id_vars=["score", "text"], value_vars=["compound", "compound_o"], var_name='type', value_name='value')
 
-p = Bar(df_sent_melt, label=["score"], values="value", 
+p1 = Bar(df_sent_melt, label=["score"], values="value", 
         title="Compound sentiment scores, grouped by review score", width=800, color='type', agg="mean", group="type")
-show(p)
-
+p1.title.text_font_size = "18pt"
+p1.xaxis.axis_label_text_font_size = "14pt"
+p1.xaxis.major_label_text_font_size = "14pt"
+p1.yaxis.axis_label_text_font_size = "14pt"
+p1.yaxis.major_label_text_font_size = "14pt"
 # NEGATIVE
 df_sent_melt = pd.melt(df_sent, id_vars=["score", "text"], value_vars=["neg", "neg_o"], var_name='type', value_name='value')
 
-p = Bar(df_sent_melt, label=["score"], values="value", 
+p2 = Bar(df_sent_melt, label=["score"], values="value", 
         title="Negative sentiment scores, grouped by review score", width=800, color='type', agg="mean", group="type")
-show(p)
-
+p2.title.text_font_size = "18pt"
+p2.xaxis.axis_label_text_font_size = "14pt"
+p2.xaxis.major_label_text_font_size = "14pt"
+p2.yaxis.axis_label_text_font_size = "14pt"
+p2.yaxis.major_label_text_font_size = "14pt"
 # NEUTRAL
 df_sent_melt = pd.melt(df_sent, id_vars=["score", "text"], value_vars=["neu", "neu_o"], var_name='type', value_name='value')
 
-p = Bar(df_sent_melt, label=["score"], values="value", 
+p3 = Bar(df_sent_melt, label=["score"], values="value", 
         title="Neutral sentiment scores, grouped by review score", width=800, color='type', agg="mean", group="type")
-show(p)
-
+p3.title.text_font_size = "18pt"
+p3.xaxis.axis_label_text_font_size = "14pt"
+p3.xaxis.major_label_text_font_size = "14pt"
+p3.yaxis.axis_label_text_font_size = "14pt"
+p3.yaxis.major_label_text_font_size = "14pt"
 # POSITIVE
 df_sent_melt = pd.melt(df_sent, id_vars=["score", "text"], value_vars=["pos", "pos_o"], var_name='type', value_name='value')
 
-p = Bar(df_sent_melt, label=["score"], values="value", 
+p4 = Bar(df_sent_melt, label=["score"], values="value", 
         title="Positive sentiment scores, grouped by review score", width=800, color='type', agg="mean", group="type")
+p4.title.text_font_size = "18pt"
+p4.xaxis.axis_label_text_font_size = "14pt"
+p4.xaxis.major_label_text_font_size = "14pt"
+p4.yaxis.axis_label_text_font_size = "14pt"
+p4.yaxis.major_label_text_font_size = "14pt"
+p = gridplot([[p1, p3], [p2, p4]])
 show(p)
 
 #%% BUILD TRAIN AND TEST SETS

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.3.30)  13 JUN 2017 17:31
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.3.30)  13 JUN 2017 19:45
 entering extended mode
 **./report.tex
 (report.tex
@@ -508,12 +508,7 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
-Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
-\c@subfigure=\count147
-\c@subtable=\count148
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\classicthesis\classicthesis.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\classicthesis\classicthesis.sty"
 Package: classicthesis 2015/09/06 v4.2 Typographic style for a classic-looking 
 thesis
 
@@ -532,11 +527,11 @@ Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
 Package: microtype 2016/05/14 v2.6a Micro-typographical refinements (RS)
 \MT@toks=\toks34
-\MT@count=\count149
+\MT@count=\count147
 LaTeX Info: Redefining \textls on input line 774.
 \MT@outer@kern=\dimen172
 LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
-\MT@listname@count=\count150
+\MT@listname@count=\count148
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype-xetex.def"
 File: microtype-xetex.def 2016/05/14 v2.6a Definitions specific to xetex (RS)
@@ -570,7 +565,7 @@ Package scrlfile, 2017/01/03 v3.22 KOMA-Script package (loading files)
 
 )))
 \ta@bcor=\skip65
-\ta@div=\count151
+\ta@div=\count149
 Package typearea Info: You've used standard option `a4paper'.
 (typearea)             This is correct!
 (typearea)             Internally I'm using `paper=a4'.
@@ -703,8 +698,8 @@ Package tocloft Info: The document has section divisions on input line 44.
 \cftbeforefigskip=\skip96
 \cftfigindent=\skip97
 \cftfignumwidth=\skip98
-\c@lofdepth=\count152
-\c@lotdepth=\count153
+\c@lofdepth=\count150
+\c@lotdepth=\count151
 \cftbeforelottitleskip=\skip99
 \cftafterlottitleskip=\skip100
 \cftbeforetabskip=\skip101
@@ -721,7 +716,7 @@ Package tocloft Info: The document has section divisions on input line 44.
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks41
 \footnotemargin=\dimen181
-\c@pp@next@reset=\count154
+\c@pp@next@reset=\count152
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -739,16 +734,30 @@ n" for footnote setup (not 100\% the same as with KOMA).
 Package: scrtime 2017/01/03 v3.22 KOMA-Script package (time of LaTeX run)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\carlisle\remreset.sty"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+\c@KVtest=\count153
+\sf@farskip=\skip109
+\sf@captopadj=\dimen182
+\sf@capskip=\skip110
+\sf@nearskip=\skip111
+\c@subfigure=\count154
+\c@subfigure@save=\count155
+\c@subtable=\count156
+\c@subtable@save=\count157
+\sf@top=\skip112
+\sf@bottom=\skip113
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
 Invalid UTF-8 byte or sequence at line 275 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 290 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 540 replaced by U+FFFD.
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
-\c@AlgoLine=\count155
+\c@AlgoLine=\count158
 Invalid UTF-8 byte or sequence at line 1311 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 1313 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 1315 replaced by U+FFFD.
-\algocf@hangindent=\skip109
+\algocf@hangindent=\skip114
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -763,38 +772,38 @@ Package `algorithm2e' Release 5.1 -- october 19 2015 --
 subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 - Author: Christophe Fiorio (christophe.fiorio@umontpellier.fr)
 ********************************************************
-\skiptotal=\skip110
-\skiplinenumber=\skip111
-\skiprule=\skip112
-\skiphlne=\skip113
-\skiptext=\skip114
-\skiplength=\skip115
-\algomargin=\skip116
-\skipalgocfslide=\skip117
-\algowidth=\dimen182
-\inoutsize=\dimen183
-\inoutindent=\dimen184
-\interspacetitleruled=\dimen185
-\interspacealgoruled=\dimen186
-\interspacetitleboxruled=\dimen187
-\algocf@ruledwidth=\skip118
+\skiptotal=\skip115
+\skiplinenumber=\skip116
+\skiprule=\skip117
+\skiphlne=\skip118
+\skiptext=\skip119
+\skiplength=\skip120
+\algomargin=\skip121
+\skipalgocfslide=\skip122
+\algowidth=\dimen183
+\inoutsize=\dimen184
+\inoutindent=\dimen185
+\interspacetitleruled=\dimen186
+\interspacealgoruled=\dimen187
+\interspacetitleboxruled=\dimen188
+\algocf@ruledwidth=\skip123
 \algocf@inoutbox=\box38
 \algocf@inputbox=\box39
-\AlCapSkip=\skip119
-\AlCapHSkip=\skip120
-\algoskipindent=\skip121
+\AlCapSkip=\skip124
+\AlCapHSkip=\skip125
+\algoskipindent=\skip126
 \algocf@nlbox=\box40
 \algocf@hangingbox=\box41
 \algocf@untilbox=\box42
-\algocf@skipuntil=\skip122
+\algocf@skipuntil=\skip127
 \algocf@capbox=\box43
-\algoheightruledefault=\skip123
-\algoheightrule=\skip124
-\algotitleheightruledefault=\skip125
-\algotitleheightrule=\skip126
-\c@algocfline=\count156
-\c@algocfproc=\count157
-\c@algocf=\count158
+\algoheightruledefault=\skip128
+\algoheightrule=\skip129
+\algotitleheightruledefault=\skip130
+\algotitleheightrule=\skip131
+\c@algocfline=\count159
+\c@algocfproc=\count160
+\c@algocf=\count161
 \algocf@algoframe=\box44
 \algocf@algobox=\box45
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
@@ -804,16 +813,16 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headfont=\toks44
 \thm@notefont=\toks45
 \thm@headpunct=\toks46
-\thm@preskip=\skip127
-\thm@postskip=\skip128
-\thm@headsep=\skip129
+\thm@preskip=\skip132
+\thm@postskip=\skip133
+\thm@headsep=\skip134
 \dth@everypar=\toks47
 )
-\c@definition=\count159
+\c@definition=\count162
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count160
+\c@lips@count=\count163
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\bm.sty"
 Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
@@ -838,47 +847,54 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 
-Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 88.
+Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 89.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
 (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: End \AtBeginDocument code.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\floatrow\fr-subfig.sty"
+Package: fr-subfig 2007/12/24 v0.1g (beta) floatrow: additions for subfig
+\FBsc@max=\skip135
+\FBso@max=\skip136
+)
 \AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring ON on input line 88.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package hyperref Info: Link coloring ON on input line 89.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count161
+\c@section@level=\count164
 )
-LaTeX Info: Redefining \ref on input line 88.
-LaTeX Info: Redefining \pageref on input line 88.
-LaTeX Info: Redefining \nameref on input line 88.
+LaTeX Info: Redefining \ref on input line 89.
+LaTeX Info: Redefining \pageref on input line 89.
+LaTeX Info: Redefining \nameref on input line 89.
 
 (report.out) (report.out)
 \@outlinefile=\write3
@@ -922,8 +938,8 @@ Package geometry Warning: The marginal notes overrun the paper.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count162
-LaTeX Info: Redefining \microtypecontext on input line 88.
+\c@lstlisting=\count165
+LaTeX Info: Redefining \microtypecontext on input line 89.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -934,39 +950,39 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 
 Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 88.
+(hyperref)                setting the option has no effect on input line 89.
 
-Package hyperref Info: Option `breaklinks' set `true' on input line 88.
+Package hyperref Info: Option `breaklinks' set `true' on input line 89.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 88.
+(hyperref)                setting the option has no effect on input line 89.
 
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 90.
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 90.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 91.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 91.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pplx.fd"
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 90.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 91.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlzplm.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 90.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 91.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omszplm.fd"
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 90.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 91.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxzplm.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 90.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 91.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd"
@@ -977,96 +993,111 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 90.
+(Font)              scaled to size 15.0049pt on input line 91.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 90.
+(Font)              scaled to size 10.42007pt on input line 91.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 90.
+(Font)              scaled to size 8.33606pt on input line 91.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 90.
+(Font)              scaled to size 15.0049pt on input line 91.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 90.
+(Font)              scaled to size 10.42007pt on input line 91.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 90.
+(Font)              scaled to size 8.33606pt on input line 91.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <14> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 93.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 94.
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\se-ascii-print.def"
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <12> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 95.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 96.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 106.
+(Font)              scaled to size 12.50409pt on input line 107.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 106.
+(Font)              scaled to size 9.37807pt on input line 107.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 106.
+(Font)              scaled to size 7.29405pt on input line 107.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 106.
+(Font)              scaled to size 12.50409pt on input line 107.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 106.
+(Font)              scaled to size 9.37807pt on input line 107.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 106.
+(Font)              scaled to size 7.29405pt on input line 107.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 109.
+(Font)              scaled to size 11.40997pt on input line 110.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 109.
+(Font)              scaled to size 6.25204pt on input line 110.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 109.
+(Font)              scaled to size 11.40997pt on input line 110.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 109.
+(Font)              scaled to size 6.25204pt on input line 110.
 
 [1
 
 ]
 File: "figures/7".png Graphic file (type QTm)
  <use  ""figures/7".png" > [2]
-LaTeX Font Info:    Try loading font information for OMS+pplj on input line 122
+LaTeX Font Info:    Try loading font information for OMS+pplj on input line 123
 .
-LaTeX Font Info:    No file OMSpplj.fd. on input line 122.
+LaTeX Font Info:    No file OMSpplj.fd. on input line 123.
 
 
 LaTeX Font Warning: Font shape `OMS/pplj/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 122.
+(Font)              for symbol `textbullet' on input line 123.
 
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplj/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-(report.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
- [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
- (report.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 135.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 135.
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 146--149
+
+ []
+
+[4] [5]
+File: "figures/2".png Graphic file (type QTm)
+ <use  ""figures/2".png" >
+File: "figures/3".png Graphic file (type QTm)
+ <use  ""figures/3".png" >
+File: "figures/4".png Graphic file (type QTm)
+
+<use  ""figures/4".png" >
+File: "figures/5".png Graphic file (type QTm)
+ <use  ""figures/5".png" > [6] (report.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
+
+(report.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 191.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 191.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 20819 strings out of 427899
- 333727 string characters out of 3153117
- 629041 words of memory out of 3000000
- 24466 multiletter control sequences out of 15000+200000
- 57292 words of font info for 117 fonts, out of 3000000 for 9000
+ 20954 strings out of 427899
+ 336015 string characters out of 3153117
+ 633129 words of memory out of 3000000
+ 24593 multiletter control sequences out of 15000+200000
+ 59006 words of font info for 118 fonts, out of 3000000 for 9000
  1330 hyphenation exceptions out of 8191
- 56i,21n,79p,955b,2842s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,21n,89p,955b,2921s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on report.pdf (3 pages).
+Output written on report.pdf (7 pages).

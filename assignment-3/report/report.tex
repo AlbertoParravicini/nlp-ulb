@@ -25,9 +25,10 @@ footinclude]{article}
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \usepackage[utf8]{inputenc} % Required for including letters with accents
 \usepackage{color}
-\usepackage{subcaption}
 \usepackage[nochapters, dottedtoc]{classicthesis}
 \usepackage{listings} % For Python code
+\usepackage{float}
+\usepackage[caption = false]{subfig} % For 2x2 grid of images
 
 \usepackage[ruled]{algorithm2e} % For pseudo-code
 
@@ -125,7 +126,7 @@ If we look at the distribution of the review scores in the dataset, it is clear 
     \item A trivial predictor that always give the majority class will have an accuracy of $54\%$ This value is our baseline, and will prove surprisingly hard to beat.
 \end{itemize}
 
-\subsection{Preprocessing}
+\subsection{Introduction to preprocessing}
 A number of preprocessing techniques can be applied to the dataset, depending on what kind of approach we want to use to predict the scores. Different techniques have been adopted, and they are detailed below.
 
 First, it was decided to work with a \textbf{unigram} model. For each review (from now on referred to as \textit{document}), we can count the number of occurrences of each word in the vocabulary. This will give a \textbf{term-document} matrix, which could be used as-is, or processed further.
@@ -134,6 +135,57 @@ To build a \textbf{term-document} matrix, there are a few things to keep into ac
 First, we need to treat differently words that are in a \textbf{negated context}: it is obviously different to say that something is \textit{"good"} compared to being \textit{"not good"}, and we have to consider that when analysing the sentences. A common approach to deal with negated contexts is to append a prefix (e.g. \textbf{NOT\_}) to words that are between a negation and the following punctuation mark.\\
 Instead, a more refined approach was taken: first, every document was analysed using the \textbf{spaCy} library for \textit{Python}. This will give the dependency tree of each sentence. Then, one can look for arcs labelled as \textbf{neg}, which denote a negation relationship: it is possible to append the \textbf{NOT\_} prefix to any word dependent on the head of the \textbf{neg} arc; this will mark the entire subordinate clause, which is more precise than the first basic approach that was presented. 
 
+Then, it should be considered that the dataset contains a large amount of different words, and it is likely that not all of them will be useful in the prediction.\\
+Punctuation signs, stop-words, and rare words will probably not be useful, and can be removed. To remove uncommon words, it is necessary to set an arbitrary threshold.\\
+ Using a value of $20$ (meaning that words with less than $20$ occurrences were removed) seems to yield a good compromise between accuracy and dataset size.
+
+Words were turned to lower-case: keeping words in upper-case could maybe be beneficial, as words written in upper-case have usually more \textit{"strength"} associated to them (think \textit{"bad"} vs. \textit{"BAD"}). The same applies to certain punctuation marks such as \textit{"!"}. Still, the increase in complexity caused by handling all these subtleties was deemed excessive for the \textbf{term-document} matrix.\\
+It was also extracted the \textbf{lemma} of the words, instead of keeping them in their original form. Once again, we can assume that there is little difference between singular and plural nouns, or between different tenses.
+Overall, the final vocabulary will contain about $10000$ terms.
+
+From this processed dataset, it was built the \textbf{term-document} matrix (of size $|Documents| \times |Vocabulary|$), that lists for each document the number of occurrences of each word.\\
+Note that instead of counting the number of occurrences, it was built a binary matrix, where a value of $1$ indicates that a certain word appears in the document. The idea is that repetitions of words won't be meaningful in the classification, compared to having or not a word. \\
+To be more precise, both approaches were tried, with the binary matrix seeming sightly more powerful.\\
+
+\subsection{Latent Semantic Analysis}
+
+Note that the \textbf{term-document} matrix is very sparse, and rather difficult to handle. Moreover, binary features don't allow to represent the semantic of a word, or its importance in the document. Hence, it was decided to process further the binary matrix, by using \textbf{Latent Semantic Analysis}. \\
+First, the occurrences matrix (not the binary one) was used to compute the \textbf{Tf-idf} values of each word, relative to each document. This matrix, also of size $|Documents| \times |Vocabulary|$, expresses the importance of each word, relatively to each document in which it appears.\\
+Then, \textbf{Truncated SVD} was applied to the matrix, to reduce its dimensionality and obtain a dense representation of each document. Dimensions of $100$ and $500$ were tried, with the second value being sightly better.
+
+Note that both the binary matrix and the dense matrix were kept, and tried with different models. The idea is that some models might prefer to work with dense numerical data, while others will prefer the binary values.\\
+Moreover, some models such as \textbf{SVD} proved to be impossible to train on the binary matrix, due to its size. On the other hand, the dense matrix is more manageable, and could be used to train a larger amount of different models.
+
+\subsection{Sentiment Lexicon}
+Instead of simply looking at word occurrences, one can assign scores to words based on their meaning: \textit{"good"} and \textit{"excellent"} have both a positive connotation, but \textit{"excellent"} is definitely stronger than \textit{"good"}. On the other hand, a word such as \textit{"spaghetti"} will hardly denote a positive or negative meaning.\\
+By computing the sentiment values of each word, it is possible to build more refined models to predict the review scores.
+
+Sentiment values could be learnt from our dataset, in order to have values that are fine-tuned to the data at our disposal (for instance, a word such as \textit{"melody"} could have a more positive meaning than \textit{"song"}).\\
+However, this approach is computationally intensive, and it's not guaranteed to provide good results, likely due to the small dataset at our disposal (compared to something like \textbf{WordNet}), which could lead to overfitting.\\
+Instead, it is possible to use a pre-trained \textbf{Sentiment Lexicon}, which will significantly speed-up our work and is guaranteed to provide good results.
+
+\textbf{NLTK} provides a pre-trained lexicon called \textbf{VADER} \cite{hutto2014vader}, which was used to score each review. For each review, it is possible to compute the \textbf{composite}, the \textbf{negative}, the \textbf{neutral} and \textbf{positive} scores. If one has to simply distinguish whether a review is positive or negative, it would be possible to simply look at the difference between positive and negative scores, and classify the document according to that. \\
+However, if it is required to give a numerical classification, it can be beneficial to keep all $4$ values, and use them as features for some model (such as a \textbf{Multiclass Logistic Regression}).
+
+\textbf{VADER} doesn't just score a sentence word-by-word, but looks at the relation of words, and makes use of negated contexts, punctuation, and adjectives. \\
+As such, it can be useful to evaluate not only the sentences that were already processed in the first section (so, at the tokenized sentences with only the lemma, no punctuation marks, and more), but also at the original text. This will give $4$ more scores for each sentence, and they can also be used as features.
+
+Below, the distribution of scores for each type and each review score, divided by pre-processed and original text.
+
+\begin{figure}[H]
+    \subfloat[Compund Score]{\includegraphics[width = 4in]{{"figures/2"}.png}}\
+    \subfloat[Neutral Score]{\includegraphics[width = 4in]{{"figures/3"}.png}}\
+    \label{sent1}
+\end{figure}    
+\begin{figure}[H]
+    \subfloat[Negative Score]{\includegraphics[width = 4in]{{"figures/4"}.png}}\
+    \subfloat[Positive Score]{\includegraphics[width = 4in]{{"figures/5"}.png}}\
+    \caption{Distribution of sentiment scores based on review score.}
+    \label{sent2}
+\end{figure}
+
+It can be noted how the sentiment scores reflect what we would expect: \textbf{negative} scores are associated to \textbf{negative} reviews, while \textbf{positive} scores are associated to \textbf{positive} reviews. \textbf{Neutral} scores show a very slight bump on the \textbf{average} scores, which is more noticeable in the pre-processed text.\\
+In general, the distributions of pre-processed and unprocessed reviews are similar, but values are stronger in the pre-processed text, as most of the superfluous information was taken out.
 
 \bibliographystyle{plainurl}
 \bibliography{bibliography}
