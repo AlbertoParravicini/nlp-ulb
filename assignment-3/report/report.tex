@@ -92,6 +92,10 @@ footinclude]{article}
 \setcounter{page}{1}
 
 \section{Introduction}
+\textbf{Assignment weight: $3$}
+
+\textit{Full code and data available at\\ \href{https://github.com/AlbertoParravicini/nlp-ulb/tree/master/assignment-3}{https://github.com/AlbertoParravicini/nlp-ulb/tree/master/assignment-3}}
+
 The goal of the assigment is to experiment with different techniques used for sentiment analysis, and compare the results obtained. \\
 As a starting point, it was used the dataset of \textbf{Digital Music} reviews on \textbf{Amazon}, compiled by \textbf{Julian McAuley}. The goal was to predict the score given to a product by analysing its review, by taking advantage of \textit{Natural Language Processing} and \textit{Machine Learning}.\\
 This report will present various preprocessing and modelling techniques that have been tried, such as \textbf{Latent Semantic Analysis} and \textbf{Support Vector Machines},
@@ -100,6 +104,17 @@ and discuss their efficiency.
 The first section of the report will detail the data that have been used, and the preprocessing techniques applied to them.\\
 The second section is focused on the models that were used for sentiment analysis, and on the selection and validation techniques that have been adopted.
 The third and last section will present the results of the models, and discuss problems and potential improvements that can be adopted.
+
+\newpage
+
+\textit{Note:} instead of keeping all the code in a single file, I preferred to use multiple files: one takes care of the preprocessing, while the others contain the models used for the predictions. 
+
+\begin{itemize}
+    \item \texttt{preprocess.py} is used to pre-process the original dataset and create different embeddings/representations of the dataset, to be used in the predictions. These representations are stored as \texttt{hdf}, to save space. The size of the dataset makes them unsuitable to be added alongside this report. They are available at \href{https://github.com/AlbertoParravicini/nlp-ulb/tree/master/assignment-3}{https://github.com/AlbertoParravicini/nlp-ulb/tree/master/assignment-3}
+    \item \texttt{naive\_bayes\_and\_svm.py} contains the models to be used with the occurrences matrices. \textbf{Naive Bayes} is suitable for the binary matrix, while \textbf{SVM} should be used with dense vectors. Refer to the specific section of the report for more informations.
+    \item \texttt{sent\_scores.py} performs classification using the sentiment lexicon.
+    \item \texttt{binary\_class.py} does binary classification instead of multi-class classification. 
+\end{itemize}
 
 \section{Data analysis and pre-processing}
 The dataset used in the assignment is a collection of \textbf{Digital Music} reviews of songs and albums sold on \textbf{Amazon}. \\
@@ -117,7 +132,8 @@ Indeed, moving from a subset of $10000$ entries to a subset of $40000$ entries s
 \end{figure}
 
 \newpage
-If we look at the distribution of the review scores in the dataset, it is clear how reviews with high scores are overrepresented (it's not common to buy a song one doesn't like). This has a few important implications:
+If we look at the distribution of the review scores in the dataset, it is clear how reviews with high scores are overrepresented.
+People usually buy songs that they like, and it's possible to see how most negative reviews contains complaints that aren't about the song itself, but about the sound quality or mastering (\textit{"I love this song, but the sound quality is awful!"} is a very common pattern).  This has a few important implications:
 
 \begin{itemize}
     \item Any model we use will have to consider the \textit{a-priori} probability of each class, as they are different.
@@ -186,6 +202,109 @@ Below, the distribution of scores for each type and each review score, divided b
 
 It can be noted how the sentiment scores reflect what we would expect: \textbf{negative} scores are associated to \textbf{negative} reviews, while \textbf{positive} scores are associated to \textbf{positive} reviews. \textbf{Neutral} scores show a very slight bump on the \textbf{average} scores, which is more noticeable in the pre-processed text.\\
 In general, the distributions of pre-processed and unprocessed reviews are similar, but values are stronger in the pre-processed text, as most of the superfluous information was taken out.
+
+\section{Model analysis}
+After preprocessing the dataset, it is possible to train different models and see how they perform. As we have different representations of the same dataset (sparse matrix, dense matrix, and sentiment scores), we will also use different models that are best suited to work with each type of data.
+
+$20\%$ of the dataset is used for validation; this set is built with \textit{stratified sampling}, to preserve the score distribution.\\
+The remaining $80\%$ is used for training. Training is done through \textit{$10$-fold cross-validation}, to obtain a precise estimate of the model accuracy and find the best values of the hyper-parameters. \\
+Then, the model is trained with the entire training set, and this model is tested on the validation set.
+This approach is used for every model that has been considered.
+
+\subsection{Multinomial Naive Bayes}
+The first model to be considered is a \textbf{Multinomial Naive Bayes}. This model was applied to the sparse \textbf{term-document} matrix. In this model features are supposed to have a multinomial distribution, which can be assumed as entries of the input matrix are word counts. \\
+Interestingly, using the binary occurrence matrix with a \textbf{Multinomial Naive Bayes} gives results that are better than both using the same model on the \textbf{term-document} matrix and of using a \textbf{Binomial Naive Bayes} on the binary occurrence matrix.
+
+In the Naive Bayes model it is possible to set the value used for \textit{Laplace smoothing}: different values were tried and tested through cross-validation, and the best result seems to be around $3$.\\
+Overall, the accuracy of the model is about $59\%$, just $5\%$ above the baseline. Still, this is the best model that was obtained. For a more in-depth discussion of the result, refer to the specific section.
+
+The dense matrix obtained through \textbf{LSA} was used as input of an \textbf{SVM} classifier. Training the \textbf{SVM} on the sparse matrices proved computationally infeasible, while the training is rather fast on the dense matrix. \\
+Still, the accuracy of this model is mediocre, at around $56\%$. However, using the dense matrix as input of the \textbf{Naive Bayes} gives even worse results (worse than the baseline): this could indicate that using a larger amount of dimensions, or even the sparse matrix, as input of the SVM could result in improvement on the best result obtained.
+
+The dataset obtained from the sentiment lexicon was tested with different models, both for regression and classification (in the case of regression, prediction are rounded to the nearest integer): \textbf{Random Forest} regressors and classifiers, \textbf{Generalized Linear Models}, \textbf{Gaussian Naive Bayes}.\\
+Overall, the best model seems to be a simple \textbf{Multiclass Logistic Regression}: even in this case, the results are mediocre, giving an accuracy of $56\%$.
+
+This last result is rather surprising, considering that there is a strong correlation between the sentiment scores and the review scores, as shown in the previous plots.
+
+\section{Result Analysis}
+This section will focus on the analysis of the results obtained by the models. Specific attention will be given to the \textbf{Multinomial Bayes Model}, as it is the one that performed the best.
+
+First, it is possible to see how many values of each type were predicted, versus the real ones.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth, center, keepaspectratio=1]{{"figures/6"}.png}
+    \caption{\emph{Distribution of the predicted review scores, versus the real ones.}}
+\end{figure}
+
+It seems that the classifier overestimates the number of reviews with score $5$, at the expenses of negatively rated reviews. This could be caused by the disproportion of classes in the dataset, a further evidence that having a more balanced training set could give better results.\\
+Still, increasing the size of the input dataset shows improvements: the \textbf{Multiclass Naive Bayes} goes from an accuracy of $56\%$ on a dataset with $10000$ reviews to $59\%$ if the dataset contains $40000$ reviews. With enough data, and computational power, it is likely that better results are achievable.\\
+In any case, the results aren't very encouraging: if the bad results obtained by regression can be explained by the skewed distribution of the scores, the classifiers should perform much better. 
+
+Using bigram counts would probably be very beneficial, but it is computationally infeasible given the available resources. It might be possible if the vocabulary was filtered further; however in this case the bigram would lose significance, as they would count words that aren't really close to each other. \\
+Also, consider that with a vocabulary of just $1000$ words (down from the current $1000$), we would end up with $1000000$ possible bigrams. The real count would obviously be much lower, but still very hard to manage.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth, center, keepaspectratio=1]{{"figures/8"}.png}
+    \caption{\emph{Confusion matrix of the \textbf{Multiclass Naive Bayes} classifier.}}
+\end{figure}
+
+Most of the mistakes are done by predicting scores of value $4$ as having value $5$. Interestingly, there are also many mistakes in the opposite sense, which makes hard to say that our classifier is being too \textit{"generous"} with the scores it's giving.\\
+There is also a certain tendency to assing $3$ instead of $2$: indeed, most reviews with score $2$ are actually classified as $3$.\\
+Amusingly, there is a large set of reviews with score $5$ that are classified as $1$, and viceversa. 
+We will look below at some of these mistakes.
+
+If we pick the majority class, $5$, as reference point, it is also possible to compute other useful metrics.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth, center, keepaspectratio=1]{{"figures/9"}.png}
+    \caption{\emph{Confusion matrix of the \textbf{Multiclass Naive Bayes} classifier, for score $5$.}}
+\end{figure}
+
+We see once again how the number of predicted $5$ is much higher than the real amount. We can also measure:
+
+$$accuracy = \frac{TP + TN}{TP + TN + FP + FN} = 0.68$$
+$$balanced\ accuracy = \frac{1}{2}(\frac{TP}{TP + FN} + \frac{TN}{TN + FP}) = 0.65$$
+$$sensitivity = \frac{TP}{TP + FN} = 0.8$$
+$$specificity = \frac{TN}{TN + FP} = 0.5$$
+$$precision = \frac{TP}{TP + FP} = 0.71$$
+
+\begin{enumerate}
+    \item \textbf{Balanced Accuracy} measures the accuracy taking into account the different class distributions, and has value $0.5$ in case the majority class is predicted. \\
+    Here we see that the balanced accuracy is only sightly lower than the accuracy, which means that we are actually able to predict the class $5$, instead of just predicting the majority class.
+    \item \textbf{Sensitivity} measures how many of the reviews with value $5$ were actually found. We can be satisfied with a value of $0.8$.
+    \item \textbf{Specificity} measures the percentage of reviews with value lower than $5$ that were actually found: here the value is not very satisfactory, as it was seen how the classifier is overestimating the amount of $5$.
+    \item \textbf{Precision} shows how many of the reviews that we classified as $5$ are actually $5$. Indeed, the value is not very high, as we predicted too many reviews to have value $5$.
+\end{enumerate}
+
+\subsection{Misclassification Analysis}
+Below are reported snippets of $10$ misclassified examples. $5$ were predicted to have score $5$, but had a real score of $1$. The other $5$ are the opposite.
+
+\begin{itemize}
+    \item "$[\ldots]$ Mind you, Commin from Where I'm From is weak in comparison to some of my favorites on the CD like Lucille, Float, Charlene, and Mama Knew Love.  This Brother testifies on this CD and it is worth every dime.  Buy it and prep yourself for an experience."
+    \item "$[\ldots]$ It's also not the first thing I'd buy in the store.While I can appreciate the effort, this record will largely appeal only to people for whom old Motown-type tracks from the 60s still hold sway. $[\ldots]$".
+    \item "$[\ldots]$ A lot of the edge is taken out, some of the saxaphone solo isn't there, and it loses some of the darkness of the earlier version.""It Goes On,"" ""Dumb Waiters"", and ""Into You Like a Train"" have riffs boppy enough to dance to. $[\ldots]$".
+    \item "$[\ldots]$ I have a problem with reviewers who probably have all of their favorite artist(s)' albums and go on record complaining that this song or that song wasn't on the ""greatest hits"" or ""best-of"" collection. I was a fan of Eddie Money's from the beginning, and was a little surprised to find that one reviewer thought his debut album was lame. $[\ldots]$".
+    \item "$[\ldots]$ Track Listing. Side One1. Rock and Roll, Hoochie Koo2. Joy Ride [Instrumental]3. Teenage Queen4. Cheap Tequila5. Uncomplicated6. HoldSide Two1. Airport Giveth (The Airport Taketh Away)2. Teenage Love Affair3. It's Raining4. Time Warp [Instrumental]5. Slide on Over Slinky6. Jump, Jump, Jump,".
+\end{itemize}
+
+We see how in many cases there are problems due to minor complains that might be considered more important than they are. The last example is harder to interpret, as it's just a sequence of titles. Indeed, it can be seen that there are many reviews which don't really contain any coherent text, and it's not surprising that they are misclassified.
+
+\begin{itemize}
+    \item "A Great Album Deserves Better Sound. $[\ldots]$ But this album deserves to be heard with modern mastering. Anyone who cares about good sound, save your money, listen to your vinyl."
+    \item "I Had No Idea. I kind of liked some of the songs these guys had on the radio. The one about Africa and Roseanna were cool songs, so I gave this a listen. $[\ldots]$."
+    \item "Buy the SACD or the Blu-Ray. You want a ""deluxe"" edition? Go for superior quality and buy the SACD edition. It's incredible. CDs are low-fi crap no matter what you add to the song list."
+    \item "Original master tape. Audio Fidelity does not use the Original master tapes on this and about all of the CD releases.  They claim the sources they use are going to give the consumer a great sounding CD.If you're not using the Original master tape then you're comparing HDTV to analog TV.This version sounds very slightly better then the Motown release but compare the cost.I wish Mobile Fidleity would release this because they use nothing but the Original Master tape and the sound comes through.A great Stevie Wonder CD, but all of his CD's are great!!!!!!!!!!!!!!!!!"
+    \item "Not his best, but a very attractive. Almost any CD from this gifted singer, is a delight for your ears! ""L Is For Lover"", not being one of his best, is certainly an excellent addition to your Male Jazz/Pop singers collection. I don't know exactly why there is now a ""shortage"" of Al Jarreau's CDs in the market (perhaps it is due to that usually stupid fight between record companies for copyrights \&/or royalties), but if you have the chance to get it, do it right now! (I had to buy mine as a used one -a German issue, the sound quality is outstanding!)."    
+\end{itemize}
+
+In the case of negative reviews classified as positive, it can be seen how words with positive connotation are often used to describe other songs or artist, but are used nonetheless to mark the review as positive.\\
+The last $2$ cases seem to be human error, as the reviews contain a positive description, followed by an extremely negative score.
+
+
+
 
 \bibliographystyle{plainurl}
 \bibliography{bibliography}

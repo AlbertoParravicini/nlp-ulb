@@ -1,3 +1,11 @@
+"""
+Script that handles multi-class classification, using the sentiment scores given by VADER.
+
+Different models were tried, with a simple logistic regression giving the best results.
+"""
+
+
+
 #%% IMPORT STUFF
 
 import pandas as pd
@@ -6,7 +14,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score, GridSearchCV
 
 from sklearn.metrics import r2_score, mean_squared_error
-from sklearn.linear_model import ElasticNet, LogisticRegressionCV, RidgeClassifierCV
+from sklearn.linear_model import ElasticNet, LogisticRegressionCV, RidgeClassifierCV, SGDClassifier
 from sklearn.preprocessing import StandardScaler
 
 from sklearn.naive_bayes import MultinomialNB, GaussianNB, BernoulliNB
@@ -19,7 +27,7 @@ from bokeh.charts import Bar
 
 #%% LOAD DATA
 
-df_sent = pd.read_hdf("../data/df_sent.h5")
+df_sent = pd.read_hdf("../data/df_sent_large.h5")
 df_sent.drop('original_text', axis=1, inplace=True)
 
 #%% PLOT SCORE DISTRIBUTION
@@ -70,6 +78,10 @@ p4.yaxis.major_label_text_font_size = "14pt"
 p = gridplot([[p1, p3], [p2, p4]])
 show(p)
 
+# END OF PLOTS
+
+
+
 #%% BUILD TRAIN AND TEST SETS
 test_size = 0.2
 
@@ -90,8 +102,6 @@ x_test = scaler.transform(x_test)
 #%% BUILD A GLM; EVALUATE IT WITH KFOLD XVALIDATION
 model = LogisticRegressionCV(Cs=20, cv=10,  solver="lbfgs")
 
-#scores = cross_val_score(model, x_train, y_train, cv=kfolds, n_jobs=1, verbose=2)
-#print(np.mean(scores))
 
 model.fit(x_train, y_train)
 print(model.C_)
@@ -109,34 +119,38 @@ print('RMSE: {}'.format(np.sqrt(mean_squared_error(pred, y_test))))
 pd.Series(pred).value_counts()
 
 
-#%% SVM: used with the dense vectors. 
+#%% SGD: train a classifier using stochastic gradient descent.
+# "hinge" gives an SVM, "log" gives a logistic regression.
+# Many different parameters are possible,
+# below there is just a small sample of what was tested.
+# Still, the results are worse than the standard logistic regression.
 
-model = SVC()
-#scores = cross_val_score(model, x_train, y_train, cv=kfolds, n_jobs=1, verbose=2)
-
-#print(np.mean(scores))
-
+model = SGDClassifier()
 
 param_grid = {
-                "C": [0.1],
-                "gamma": [1/1000]
+                "loss": ["hinge", "log"],
+                "penalty": ["l2"],
+                "alpha": [10**-1],
+                "class_weight": ["balanced", None]
+                
              }
  
-grid_svm = GridSearchCV(model, param_grid, cv=4, verbose=2, n_jobs=1)
-grid_svm.fit(x_train, y_train)
+grid_sgd = GridSearchCV(model, param_grid, cv=4, verbose=2, n_jobs=1)
+grid_sgd.fit(x_train, y_train)
     
 print("\n-------- BEST ESTIMATOR --------\n")
-print(grid_svm.best_estimator_)
+print(grid_sgd.best_estimator_)
 print("\n-------- BEST PARAMS --------\n")
-print(grid_svm.best_params_)
+print(grid_sgd.best_params_)
 print("\n-------- BEST SCORE --------\n")
-print(grid_svm.best_score_)
+print(grid_sgd.best_score_)
+df_res = pd.DataFrame(grid_sgd.cv_results_)
 
-#%% TRAIN SVM
+#%% TRAIN SGD
 
 model.fit(x_train, y_train)
 
-#%% PREDICT WITH SVM
+#%% PREDICT WITH SGD
 
 pred = model.predict(x_test)
 

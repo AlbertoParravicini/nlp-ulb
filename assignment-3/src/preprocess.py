@@ -1,3 +1,7 @@
+"""
+Load the original dataset, and creates different embeddings from it.
+"""
+
 #%% IMPORT STUFF
 
 import pandas as pd
@@ -44,7 +48,7 @@ data["original_text"] = data["summary"] + ". " + data["original_text"]
 data.drop('summary', axis=1, inplace=True)
 
 # Build a smaller dataset.
-sample_size = 40000
+sample_size = 10000
 
 df_sample = data.sample(sample_size)
 df_sample = df_sample.reset_index(drop=True)
@@ -130,7 +134,7 @@ for i, t in enumerate(df_sample["original_text"]):
 #%% We can use both!
 
 df_sent_tot = df_sent.join(df_sent_orig)
-df_sent_tot.to_hdf("../data/df_sent_large.h5", "df_sent", mode="w")
+df_sent_tot.to_hdf("../data/df_sent.h5", "df_sent", mode="w")
 
 
 #%% Count the occurrences of each word.
@@ -157,7 +161,7 @@ for t_i, t in enumerate(df_sample["text"]):
 bin_df["SCORE"] = df_sample["score"]
 
 #%% Save the dataframe
-bin_df.to_hdf("../data/bin_df_large.h5", "bin_df", mode="w")
+bin_df.to_hdf("../data/bin_df.h5", "bin_df", mode="w")
 
 
 #%% Try to apply svd to the dataset
@@ -174,4 +178,4 @@ compressed = pd.DataFrame(compressed)
 compressed["SCORE"] = df_sample["score"]
 
 #%% Save the dataframe
-compressed.to_hdf("../data/compressed_large.h5", "compressed", mode="w")
+compressed.to_hdf("../data/compressed.h5", "compressed", mode="w")

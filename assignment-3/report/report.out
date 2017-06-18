@@ -3,3 +3,7 @@
 \BOOKMARK [2][-]{subsection.2.1}{Introduction\040to\040preprocessing}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Latent\040Semantic\040Analysis}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Sentiment\040Lexicon}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Model\040analysis}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Multinomial\040Naive\040Bayes}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Result\040Analysis}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Misclassification\040Analysis}{section.4}% 9
