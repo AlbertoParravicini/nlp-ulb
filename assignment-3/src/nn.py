@@ -43,9 +43,34 @@ X_tr, X_val, y_tr, y_val = train_test_split(X, y_bin, random_state = 3)
 #%% BUILD NN
 
 model = Sequential()
-model.add(Dense(40, input_shape = (X_tr.shape[1], ), kernel_regularizer=l1(0.001)))
+model.add(Dense(128, input_shape = (X_tr.shape[1], )))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
+model.add(Dropout(0.1))
+
+model.add(Dense(128))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+#model.add(Dropout(0.2))
+
+#model.add(Dense(32))
+#model.add(BatchNormalization())
+#model.add(Activation('relu'))
+#model.add(Dropout(0.2))
+#
+#model.add(Dense(16))
+#model.add(BatchNormalization())
+#model.add(Activation('relu'))
+#
+#model.add(Dense(16))
+#model.add(BatchNormalization())
+#model.add(Activation('relu'))
+#
+#model.add(Dense(16))
+#model.add(BatchNormalization())
+#model.add(Activation('relu'))
+
+
 
 model.add(Dense(y_bin.shape[1], activation='softmax'))
 model.compile(optimizer='adam',
@@ -54,10 +79,10 @@ model.compile(optimizer='adam',
 model.summary()
 
 #%% TRAIN NN
-filepath="../models/best-weights.hdf5"
+filepath="./best-weights.hdf5"
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
 
-hist = model.fit(X_tr, y_tr, validation_data = (X_val, y_val), epochs=2000, batch_size=32, callbacks=callbacks_list)
+hist = model.fit(X_tr, y_tr, validation_data = (X_val, y_val), epochs=200, batch_size=256, callbacks=callbacks_list)
 
 
